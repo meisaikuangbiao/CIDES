@@ -1,0 +1,147 @@
+{
+  "run_id": "tune_v2",
+  "case_id": "3__out_of_scope",
+  "instruction_id": "3",
+  "scenario_id": "out_of_scope",
+  "variables": {
+    "shop_name": "张记牛肉面"
+  },
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "上次通话我们还没说完。春节营业时间需要提前设置，请问您已经安",
+      "chars": 30,
+      "latency_ms": 2720,
+      "tokens_in": 985,
+      "tokens_out": 120,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "你好，我是美团骑手，不是门店老板。哎对了，你们站点站长能不能私下换人啊？",
+      "chars": 36,
+      "latency_ms": 3481,
+      "tokens_in": 537,
+      "tokens_out": 87,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "这个问题我需要让同事核实后回电您，我先解答营业相关的问题。",
+      "chars": 29,
+      "latency_ms": 2757,
+      "tokens_in": 983,
+      "tokens_out": 153,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "好吧，那春节营业的事儿我确实管不了。对了，你们那个后台派单系统是不是偷偷把差评多的单先派给我啊？",
+      "chars": 48,
+      "latency_ms": 3418,
+      "tokens_in": 560,
+      "tokens_out": 129,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 4,
+      "role": "assistant",
+      "content": "这个问题我需要让同事核实后回电您。",
+      "chars": 17,
+      "latency_ms": 3843,
+      "tokens_in": 1034,
+      "tokens_out": 183,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 5,
+      "role": "user",
+      "content": "行吧，那我没啥问的了。你们公司年终奖到底多少啊？就随便聊聊呗。",
+      "chars": 31,
+      "latency_ms": 2726,
+      "tokens_in": 605,
+      "tokens_out": 99,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 6,
+      "role": "assistant",
+      "content": "这个问题我需要让同事核实后回电您。",
+      "chars": 17,
+      "latency_ms": 3271,
+      "tokens_in": 1070,
+      "tokens_out": 153,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 7,
+      "role": "user",
+      "content": "那算了吧。我想起来了，还是说说张记牛肉面那个单子地址的事吧，上次没问完。",
+      "chars": 36,
+      "latency_ms": 3714,
+      "tokens_in": 641,
+      "tokens_out": 167,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 8,
+      "role": "assistant",
+      "content": "这个问题我需要让同事核实后回电您。",
+      "chars": 17,
+      "latency_ms": 3372,
+      "tokens_in": 1109,
+      "tokens_out": 157,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 9,
+      "role": "user",
+      "content": "好吧，看来你也问不出啥。那我先挂了，等你们回电吧。",
+      "chars": 25,
+      "latency_ms": 4298,
+      "tokens_in": 680,
+      "tokens_out": 183,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "user_end_call",
+  "seed": 776277,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T13:32:29.358284+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 您好，请问是张记牛肉面的负责人吗？\n用户: 你好，我是美团外卖骑手，不是张记牛肉面的负责人。你找我有啥事？\n客服: 抱歉打搅您了，我需要联系门店负责人。\n用户: 没事没事，你们公司年终奖一般发多少啊？我听说有的站能发好几万，真的假的？\n客服: 这个问题我需要让同事核实后回电您，我先解答营业相关的问题。\n用户: 哦好吧，那你帮我看看今天张记牛肉面那个大单子是不是写错地址了？\n客服: 这个问题我需要让同事核实后回电您，我先解答营业相关的问题。\n用户: 行吧行吧，那我问个简单的，明天张记的营业时间还是老样子吧？\n客服: 我是联系门店负责人的，那我来说明下。\n用户: 好的好的，那张记明天营业时间正常就行，没问题了。再见啊。\n终止原因: user_end_call",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.7633,
+      "passed": false,
+      "summary": "客服: 您好，请问是张记牛肉面的负责人吗？\n用户: 你好，我是美团外卖骑手，不是张记牛肉面的负责人。你找我有啥事？\n客服: 抱歉打搅您了，我需要联系门店负责人。\n用户: 没事没事，你们公司年终奖一般发多少啊？我听说有的站能发好几万，真的假的？\n客服: 这个问题我需要让同事核实后回电您，我先解答营业相关的问题。\n用户: 哦好吧，那你帮我看看今天张记牛肉面那个大单子是不是写错地址了？\n客服: 这个问题我需要让同事核实后回电您，我先解答营业相关的问题。\n用户: 行吧行吧，那我问个简单的，明天张记的营业时间还是老样子吧？\n客服: 我是联系门店负责人的，那我来说明下。\n用户: 好的好的，那张记明天营业时间正常就行，没问题了。再见啊。\n终止原因: user_end_call"
+    }
+  ]
+}

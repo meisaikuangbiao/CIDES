@@ -1,0 +1,147 @@
+{
+  "run_id": "tune_v2",
+  "case_id": "3__hesitant",
+  "instruction_id": "3",
+  "scenario_id": "hesitant",
+  "variables": {
+    "shop_name": "川味小厨"
+  },
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "您好，川味小厨的负责人吗？我是美团运营专员，上次通话您忙，现",
+      "chars": 30,
+      "latency_ms": 3350,
+      "tokens_in": 1066,
+      "tokens_out": 160,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "喂，您好，我还是有点担心今天做不完，春节的事我再考虑下吧。",
+      "chars": 29,
+      "latency_ms": 3743,
+      "tokens_in": 518,
+      "tokens_out": 185,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "理解您忙。我们只需几分钟确认春节营业时间，不会耽误您太多。",
+      "chars": 29,
+      "latency_ms": 2813,
+      "tokens_in": 1064,
+      "tokens_out": 104,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "我怕答应了又做不完，到时候更麻烦，我再考虑下吧。",
+      "chars": 24,
+      "latency_ms": 3319,
+      "tokens_in": 538,
+      "tokens_out": 132,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 4,
+      "role": "assistant",
+      "content": "明白。设置营业时间不会增加工作，反而能避免春节出问题，您安心",
+      "chars": 30,
+      "latency_ms": 1808,
+      "tokens_in": 1100,
+      "tokens_out": 73,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 5,
+      "role": "user",
+      "content": "嗯…你说得倒也有道理，但我还是有点担心，今天真走不开。",
+      "chars": 27,
+      "latency_ms": 2938,
+      "tokens_in": 575,
+      "tokens_out": 123,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 6,
+      "role": "assistant",
+      "content": "我懂您难处。春节设置是为了帮您防顾客下单，省心，您看咱们现在",
+      "chars": 30,
+      "latency_ms": 3321,
+      "tokens_in": 1140,
+      "tokens_out": 142,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 7,
+      "role": "user",
+      "content": "那好吧…不过我还是有点担心，你先说怎么安排，我再听听。",
+      "chars": 27,
+      "latency_ms": 3008,
+      "tokens_in": 619,
+      "tokens_out": 130,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 8,
+      "role": "assistant",
+      "content": "好的，感谢您。先确认第一步，春节营业时间只需在商家端设置，保",
+      "chars": 30,
+      "latency_ms": 2372,
+      "tokens_in": 1182,
+      "tokens_out": 104,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 9,
+      "role": "user",
+      "content": "好吧，既然你这么说，那我先试试看。不过如果忙不过来我会调整的。",
+      "chars": 31,
+      "latency_ms": 3353,
+      "tokens_in": 658,
+      "tokens_out": 137,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "user_end_call",
+  "seed": 965558,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T13:31:00.836016+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 您好，请问是川味小厨的负责人吗？我是美团商家运营专员。\n用户: 喂，您好，我是川味小厨的负责人。不过今天忙得够呛，我还有点担心接单的事儿。\n客服: 明白，今天来电是想和您沟通春节营业时间调整的事，几分钟就好。\n用户: 春节的事啊，我再考虑考虑吧。现在单子太多了，我有点担心忙不过来。\n客服: 理解您的难处。春节营业时间只需提前在系统设置，花几分钟就能搞\n用户: 我知道操作不复杂，但今天实在走不开，我有点怕做不完这些单子。\n客服: 我懂的。咱们先聊最关键的一项：您只需设置春节歇业和营业时间，\n用户: 嗯，我还是再考虑下吧。今天单子真的太多了，我怕顾不过来。\n客服: 明白，确实辛苦。您只需要在商家端点击几下，就能设置好营业时间\n用户: 道理我都懂，可今天站长都在催了，我真有点拿不准主意。再想想吧。\n客服: 那今天先不急。您先忙完手头的事，我稍后再联系您处理春节设置。\n用户: 好，那麻烦您晚点再联系我吧，我先忙完这波单子再说。\n终止原因: user_end_call",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.6672,
+      "passed": false,
+      "summary": "客服: 您好，请问是川味小厨的负责人吗？我是美团商家运营专员。\n用户: 喂，您好，我是川味小厨的负责人。不过今天忙得够呛，我还有点担心接单的事儿。\n客服: 明白，今天来电是想和您沟通春节营业时间调整的事，几分钟就好。\n用户: 春节的事啊，我再考虑考虑吧。现在单子太多了，我有点担心忙不过来。\n客服: 理解您的难处。春节营业时间只需提前在系统设置，花几分钟就能搞\n用户: 我知道操作不复杂，但今天实在走不开，我有点怕做不完这些单子。\n客服: 我懂的。咱们先聊最关键的一项：您只需设置春节歇业和营业时间，\n用户: 嗯，我还是再考虑下吧。今天单子真的太多了，我怕顾不过来。\n客服: 明白，确实辛苦。您只需要在商家端点击几下，就能设置好营业时间\n用户: 道理我都懂，可今天站长都在催了，我真有点拿不准主意。再想想吧。\n客服: 那今天先不急。您先忙完手头的事，我稍后再联系您处理春节设置。\n用户: 好，那麻烦您晚点再联系我吧，我先忙完这波单子再说。\n终止原因: user_end_call"
+    }
+  ]
+}

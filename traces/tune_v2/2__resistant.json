@@ -1,0 +1,121 @@
+{
+  "run_id": "tune_v2",
+  "case_id": "2__resistant",
+  "instruction_id": "2",
+  "scenario_id": "resistant",
+  "variables": {},
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "您好，我是上次打电话的客服。",
+      "chars": 14,
+      "latency_ms": 7228,
+      "tokens_in": 1485,
+      "tokens_out": 447,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "哎，今天真的不行，有什么事改天再说吧。",
+      "chars": 19,
+      "latency_ms": 2440,
+      "tokens_in": 486,
+      "tokens_out": 82,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "理解，今天合同已生效，改规则得今天处理。",
+      "chars": 20,
+      "latency_ms": 5633,
+      "tokens_in": 1464,
+      "tokens_out": 307,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "今天真的不行，我这儿正忙得不可开交，您过两天再打来吧。",
+      "chars": 27,
+      "latency_ms": 4180,
+      "tokens_in": 497,
+      "tokens_out": 139,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 4,
+      "role": "assistant",
+      "content": "理解您忙，今天已生效，真没办法改天。",
+      "chars": 18,
+      "latency_ms": 5421,
+      "tokens_in": 1501,
+      "tokens_out": 307,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 5,
+      "role": "user",
+      "content": "今天真的不行，我这边实在走不开，过几天再说吧。",
+      "chars": 23,
+      "latency_ms": 2761,
+      "tokens_in": 534,
+      "tokens_out": 127,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 6,
+      "role": "assistant",
+      "content": "理解，今天确实生效了。",
+      "chars": 11,
+      "latency_ms": 3651,
+      "tokens_in": 1533,
+      "tokens_out": 206,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 7,
+      "role": "user",
+      "content": "对，今天真的不行，过几天再联系吧。再见。",
+      "chars": 20,
+      "latency_ms": 2240,
+      "tokens_in": 560,
+      "tokens_out": 109,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "user_end_call",
+  "seed": 545358,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T13:27:41.797483+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 您好，请问您是贵培训机构/校区的负责人吗\n用户: 是的，我是负责人，不过今天真的不行，有什么事改天再说吧。\n客服: 理解您忙。就1分钟，今天已生效，改规则得\n用户: 今天真的不行，我现在手头事情太多，实在抽不开身。以后再说吧。\n客服: 理解，今天已强制生效，改规则得联系我。\n用户: 我说了今天真的不行，改天再联系吧，我现在确实走不开。\n客服: 理解，今天确实生效了，那下次再联系您。\n用户: 好的好的，下次再打给我吧，我先忙了。再见。\n终止原因: user_end_call",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.6867,
+      "passed": false,
+      "summary": "客服: 您好，请问您是贵培训机构/校区的负责人吗\n用户: 是的，我是负责人，不过今天真的不行，有什么事改天再说吧。\n客服: 理解您忙。就1分钟，今天已生效，改规则得\n用户: 今天真的不行，我现在手头事情太多，实在抽不开身。以后再说吧。\n客服: 理解，今天已强制生效，改规则得联系我。\n用户: 我说了今天真的不行，改天再联系吧，我现在确实走不开。\n客服: 理解，今天确实生效了，那下次再联系您。\n用户: 好的好的，下次再打给我吧，我先忙了。再见。\n终止原因: user_end_call"
+    }
+  ]
+}

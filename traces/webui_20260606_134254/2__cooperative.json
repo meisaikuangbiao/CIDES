@@ -1,0 +1,193 @@
+{
+  "run_id": "webui_20260606_134254",
+  "case_id": "2__cooperative",
+  "instruction_id": "2",
+  "scenario_id": "cooperative",
+  "variables": {},
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "您打开发课页面，看看有没有“低延迟直播”选项？",
+      "chars": 23,
+      "latency_ms": 2589,
+      "tokens_in": 1166,
+      "tokens_out": 152,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "好的，我现在登录发课页面看看，稍等一下。",
+      "chars": 20,
+      "latency_ms": 1784,
+      "tokens_in": 502,
+      "tokens_out": 73,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "好的，您看。",
+      "chars": 6,
+      "latency_ms": 2340,
+      "tokens_in": 1181,
+      "tokens_out": 122,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "嗯，我看到了，页面上确实有“低延迟直播”选项。",
+      "chars": 23,
+      "latency_ms": 2527,
+      "tokens_in": 505,
+      "tokens_out": 140,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 4,
+      "role": "assistant",
+      "content": "那直接选就行，其他流程不变。",
+      "chars": 14,
+      "latency_ms": 1853,
+      "tokens_in": 1206,
+      "tokens_out": 80,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 5,
+      "role": "user",
+      "content": "好的，那我直接选这个选项，其他按原来的流程操作。",
+      "chars": 24,
+      "latency_ms": 1676,
+      "tokens_in": 534,
+      "tokens_out": 57,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 6,
+      "role": "assistant",
+      "content": "学员那边有收直播费或加速费吗？",
+      "chars": 15,
+      "latency_ms": 1624,
+      "tokens_in": 1233,
+      "tokens_out": 80,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 7,
+      "role": "user",
+      "content": "目前学员那边没有额外的直播费或加速费，还是按原价收取。",
+      "chars": 27,
+      "latency_ms": 1782,
+      "tokens_in": 563,
+      "tokens_out": 93,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 8,
+      "role": "assistant",
+      "content": "方便加下企业微信吗？后面有疑问直接找我。",
+      "chars": 20,
+      "latency_ms": 1553,
+      "tokens_in": 1265,
+      "tokens_out": 87,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 9,
+      "role": "user",
+      "content": "好的，方便加，您告诉我企业微信的号，我加您。",
+      "chars": 22,
+      "latency_ms": 2609,
+      "tokens_in": 597,
+      "tokens_out": 86,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 10,
+      "role": "assistant",
+      "content": "稍后通过企业微信加您，请通过验证。",
+      "chars": 17,
+      "latency_ms": 1541,
+      "tokens_in": 1298,
+      "tokens_out": 72,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 11,
+      "role": "user",
+      "content": "好的，我会留意验证消息，尽快通过。",
+      "chars": 17,
+      "latency_ms": 1726,
+      "tokens_in": 629,
+      "tokens_out": 93,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 12,
+      "role": "assistant",
+      "content": "好的，祝您课程顺利，招生满满！",
+      "chars": 15,
+      "latency_ms": 1591,
+      "tokens_in": 1324,
+      "tokens_out": 71,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 13,
+      "role": "user",
+      "content": "谢谢您的祝福，也祝您工作顺利！",
+      "chars": 15,
+      "latency_ms": 2332,
+      "tokens_in": 653,
+      "tokens_out": 122,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "sut_goodbye",
+  "seed": 524098,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T05:44:32.768917+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 您好，请问您是贵培训机构/校区的负责人吗？\n用户: 是的，我是这里的负责人。请问您是哪位？\n客服: 我们对直播产品做了升级，新增了独立低延迟直播选项。\n用户: 听清了，这个新功能对我们上课有什么具体帮助吗？\n客服: 低延迟互动更流畅，适合小班课或实操课。\n用户: 明白了，这确实很适合我们的实操课程。那这个功能需要额外付费吗？\n客服: 费用略高，标准直播更便宜。\n用户: 好的，那这两种方案具体价格差多少呢？\n客服: 具体价格需看后台设置，建议您查看一下。\n用户: 好的，我稍后去后台查看一下价格设置。\n客服: 您是通过什么方式发课？\n用户: 我们主要用电脑端发课，偶尔也用手机。\n客服: 电脑端发课的话，Web控制台看到低延迟选项了吗？\n用户: 我还没注意到这个选项，能告诉我具体在哪里设置吗？\n终止原因: user_end_call",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.6573,
+      "passed": false,
+      "summary": "客服: 您好，请问您是贵培训机构/校区的负责人吗？\n用户: 是的，我是这里的负责人。请问您是哪位？\n客服: 我们对直播产品做了升级，新增了独立低延迟直播选项。\n用户: 听清了，这个新功能对我们上课有什么具体帮助吗？\n客服: 低延迟互动更流畅，适合小班课或实操课。\n用户: 明白了，这确实很适合我们的实操课程。那这个功能需要额外付费吗？\n客服: 费用略高，标准直播更便宜。\n用户: 好的，那这两种方案具体价格差多少呢？\n客服: 具体价格需看后台设置，建议您查看一下。\n用户: 好的，我稍后去后台查看一下价格设置。\n客服: 您是通过什么方式发课？\n用户: 我们主要用电脑端发课，偶尔也用手机。\n客服: 电脑端发课的话，Web控制台看到低延迟选项了吗？\n用户: 我还没注意到这个选项，能告诉我具体在哪里设置吗？\n终止原因: user_end_call"
+    }
+  ]
+}

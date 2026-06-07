@@ -1,0 +1,123 @@
+{
+  "run_id": "tune_v2",
+  "case_id": "1__cooperative",
+  "instruction_id": "1",
+  "scenario_id": "cooperative",
+  "variables": {
+    "rider_name": "陈师傅"
+  },
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "你好，陈师傅，我是站长。今天飞毛腿合同已生效，你还能正常配送",
+      "chars": 30,
+      "latency_ms": 4142,
+      "tokens_in": 1283,
+      "tokens_out": 227,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "喂，站长您好，我听清了，今天可以正常配送。",
+      "chars": 21,
+      "latency_ms": 2108,
+      "tokens_in": 522,
+      "tokens_out": 60,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "好的。单日飞毛腿合同需要连续Y天完成配送，否则名额可能被占。",
+      "chars": 30,
+      "latency_ms": 2170,
+      "tokens_in": 1275,
+      "tokens_out": 92,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "好的站长，我明白了，每天必须完成那个数量对吧？",
+      "chars": 23,
+      "latency_ms": 2539,
+      "tokens_in": 541,
+      "tokens_out": 69,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 4,
+      "role": "assistant",
+      "content": "没错。你愿意配合配送，太好了！",
+      "chars": 15,
+      "latency_ms": 3107,
+      "tokens_in": 1313,
+      "tokens_out": 137,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 5,
+      "role": "user",
+      "content": "放心吧站长，我肯定按合同要求跑，每天Y单我会尽量完成的。",
+      "chars": 28,
+      "latency_ms": 2744,
+      "tokens_in": 567,
+      "tokens_out": 121,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 6,
+      "role": "assistant",
+      "content": "很好，注意安全！另外飞毛腿报名按排名，不是你我能干预的。",
+      "chars": 28,
+      "latency_ms": 3732,
+      "tokens_in": 1343,
+      "tokens_out": 144,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 7,
+      "role": "user",
+      "content": "好的站长，谢谢您提醒。我这边都明白了，那没别的事我就先挂了。",
+      "chars": 30,
+      "latency_ms": 2357,
+      "tokens_in": 606,
+      "tokens_out": 105,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "user_end_call",
+  "seed": 275345,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T13:27:16.741201+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 你好，请问是陈师傅吗？我是站长。\n用户: 喂，您好，我是陈师傅，站长您说。\n客服: 今天飞毛腿合同已经生效了，你今天能开始配送吗？\n用户: 没问题站长，我今天就可以开始配送，您把单子发给我吧。\n客服: 好的，陈师傅！今天单日合同需要完成X单，记得午餐和晚餐高峰期\n用户: 好的，我记下了。那今天具体要完成多少单，您能再说一下吗？\n客服: 单日合同今天必须完成X单。另外多日合同需要连续Y天每天完成Y\n用户: 好的站长，每天Y单我记着了。那第二天也是从中午开始跑吗？\n客服: 这个先放一放。你今晚能上线跑吗？\n用户: 今晚可以的站长，你是想让我跑哪段时间？\n客服: 可以。那今晚就上线跑，先把今天单日合同的X单完成好吗？\n用户: 好的站长，我今晚就上线，按您说的先完成今天X单。\n客服: 太好了，感谢配合！记得注意安全，恶劣天气也要多接单，能保住飞\n用户: 明白了站长，您放心我一定注意安全，天气不好也会多接单的。\n终止原因: user_end_call",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.8188,
+      "passed": false,
+      "summary": "客服: 你好，请问是陈师傅吗？我是站长。\n用户: 喂，您好，我是陈师傅，站长您说。\n客服: 今天飞毛腿合同已经生效了，你今天能开始配送吗？\n用户: 没问题站长，我今天就可以开始配送，您把单子发给我吧。\n客服: 好的，陈师傅！今天单日合同需要完成X单，记得午餐和晚餐高峰期\n用户: 好的，我记下了。那今天具体要完成多少单，您能再说一下吗？\n客服: 单日合同今天必须完成X单。另外多日合同需要连续Y天每天完成Y\n用户: 好的站长，每天Y单我记着了。那第二天也是从中午开始跑吗？\n客服: 这个先放一放。你今晚能上线跑吗？\n用户: 今晚可以的站长，你是想让我跑哪段时间？\n客服: 可以。那今晚就上线跑，先把今天单日合同的X单完成好吗？\n用户: 好的站长，我今晚就上线，按您说的先完成今天X单。\n客服: 太好了，感谢配合！记得注意安全，恶劣天气也要多接单，能保住飞\n用户: 明白了站长，您放心我一定注意安全，天气不好也会多接单的。\n终止原因: user_end_call"
+    }
+  ]
+}

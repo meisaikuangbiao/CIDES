@@ -1,0 +1,147 @@
+{
+  "run_id": "tune_v2",
+  "case_id": "3__interrupt",
+  "instruction_id": "3",
+  "scenario_id": "interrupt",
+  "variables": {
+    "shop_name": "小李烧烤"
+  },
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "您好，又打扰了，咱们接着说春节营业时间设置的事。",
+      "chars": 24,
+      "latency_ms": 3752,
+      "tokens_in": 1061,
+      "tokens_out": 203,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "等一下，我先问个事，上次说的那个超时罚款帮我查了吗？",
+      "chars": 26,
+      "latency_ms": 2543,
+      "tokens_in": 506,
+      "tokens_out": 101,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "这个需要同事回电处理。咱们先确认春节营业时间设置，您方便吗？",
+      "chars": 30,
+      "latency_ms": 2635,
+      "tokens_in": 1051,
+      "tokens_out": 97,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "行行行，那营业时间的事等会儿再说。对了，我今天接了个单，系统派的距离特别远，这合理吗？",
+      "chars": 43,
+      "latency_ms": 3656,
+      "tokens_in": 528,
+      "tokens_out": 166,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 4,
+      "role": "assistant",
+      "content": "这个需要同事回电解释。我先把春节营业设置的要求说清楚，一分钟",
+      "chars": 30,
+      "latency_ms": 4239,
+      "tokens_in": 1103,
+      "tokens_out": 208,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 5,
+      "role": "user",
+      "content": "你先别急，我先看看导航。你说的那个春节营业，是不是跟去年一样？",
+      "chars": 31,
+      "latency_ms": 4234,
+      "tokens_in": 578,
+      "tokens_out": 155,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 6,
+      "role": "assistant",
+      "content": "对的，先确认去年设置。今年需要在后台重新操作，避免平台按默认",
+      "chars": 30,
+      "latency_ms": 2934,
+      "tokens_in": 1142,
+      "tokens_out": 130,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 7,
+      "role": "user",
+      "content": "等一下，我先问个事。去年设置的春节营业没问题吧？今年改的话会不会扣钱？",
+      "chars": 35,
+      "latency_ms": 4273,
+      "tokens_in": 617,
+      "tokens_out": 168,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 8,
+      "role": "assistant",
+      "content": "改营业时间不扣钱。不设置的话平台会按默认展示，可能影响接单。",
+      "chars": 30,
+      "latency_ms": 2871,
+      "tokens_in": 1184,
+      "tokens_out": 146,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 9,
+      "role": "user",
+      "content": "行吧行吧，我知道了。改天我再弄，现在正跑单呢，先挂了啊。",
+      "chars": 28,
+      "latency_ms": 1958,
+      "tokens_in": 663,
+      "tokens_out": 82,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "user_end_call",
+  "seed": 303833,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T13:33:25.896785+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 您好，请问是小李烧烤的负责人吗？我是美团商家运营专员。\n用户: 嗯是我，有什么事赶紧说，我正跑单呢。\n客服: 好的，简单说下：春节需提前设置歇业日期和营业时间，您方便时操\n用户: 等一下，我先问个事，系统显示我有个单子超时了，罚款怎么算的？\n客服: 这个问题我需要让同事核实后回电您，我先解答营业相关的问题。\n用户: 行行，罚款那个你能帮我查查不？我这单才跑了多久就说我超时。\n客服: 这个超出我的职责范围，会有同事回电处理。\n用户: 好吧，那营业时间的事我回头再看。对了，你们平台最近怎么回事，我接单量少了好多。\n客服: 接单量问题需由同事回电说明。您回头操作时，记得确认菜单库存和\n用户: 等等，你先别急着说库存。你说有同事回电，那他啥时候能打给我？我这等着呢。\n客服: 这个时间我无法确定，建议您留意来电。另外，菜单更新确认了吗？\n用户: 菜单菜单，我哪有空更新菜单啊，现在忙着送单呢。得了，你让人回电吧。\n客服: 好的，打扰了。您方便时我们再联系，先不耽误您跑单。\n用户: 行，那我挂了啊，有啥事让人回电话说。\n终止原因: user_end_call",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.6689,
+      "passed": false,
+      "summary": "客服: 您好，请问是小李烧烤的负责人吗？我是美团商家运营专员。\n用户: 嗯是我，有什么事赶紧说，我正跑单呢。\n客服: 好的，简单说下：春节需提前设置歇业日期和营业时间，您方便时操\n用户: 等一下，我先问个事，系统显示我有个单子超时了，罚款怎么算的？\n客服: 这个问题我需要让同事核实后回电您，我先解答营业相关的问题。\n用户: 行行，罚款那个你能帮我查查不？我这单才跑了多久就说我超时。\n客服: 这个超出我的职责范围，会有同事回电处理。\n用户: 好吧，那营业时间的事我回头再看。对了，你们平台最近怎么回事，我接单量少了好多。\n客服: 接单量问题需由同事回电说明。您回头操作时，记得确认菜单库存和\n用户: 等等，你先别急着说库存。你说有同事回电，那他啥时候能打给我？我这等着呢。\n客服: 这个时间我无法确定，建议您留意来电。另外，菜单更新确认了吗？\n用户: 菜单菜单，我哪有空更新菜单啊，现在忙着送单呢。得了，你让人回电吧。\n客服: 好的，打扰了。您方便时我们再联系，先不耽误您跑单。\n用户: 行，那我挂了啊，有啥事让人回电话说。\n终止原因: user_end_call"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "run_id": "webui_20260606_134254",
+  "case_id": "3__resistant",
+  "instruction_id": "3",
+  "scenario_id": "resistant",
+  "variables": {
+    "shop_name": "川味小厨"
+  },
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "（电话接通）您好，请问是川味小厨的负责人吗？我是美团运营专员，关于春节营业时间调整需要和您确认。",
+      "chars": 48,
+      "latency_ms": 1658,
+      "tokens_in": 466,
+      "tokens_out": 87,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "您好，我是川味小厨的骑手，不是负责人。今天真的不行。",
+      "chars": 26,
+      "latency_ms": 1747,
+      "tokens_in": 444,
+      "tokens_out": 47,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "好的，那请问负责人明天方便时，我几点再打过来合适？",
+      "chars": 25,
+      "latency_ms": 1853,
+      "tokens_in": 503,
+      "tokens_out": 84,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "明天也不行啊，我真的不是负责人，以后再说吧。",
+      "chars": 22,
+      "latency_ms": 3099,
+      "tokens_in": 464,
+      "tokens_out": 147,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 4,
+      "role": "assistant",
+      "content": "抱歉打扰了。麻烦您方便时转告负责人，我会再联系。祝您工作顺利！",
+      "chars": 31,
+      "latency_ms": 2331,
+      "tokens_in": 535,
+      "tokens_out": 128,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 5,
+      "role": "user",
+      "content": "好的，今天真的不行，我忙去了，再见。",
+      "chars": 18,
+      "latency_ms": 2358,
+      "tokens_in": 501,
+      "tokens_out": 120,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "sut_goodbye",
+  "seed": 406033,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T05:45:10.704354+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 您好，请问是川味小厨的负责人吗？我是美团商家运营专员。\n用户: 您好，我是川味小厨的骑手，不是负责人。今天真的不行，您找别人吧。\n客服: 抱歉打扰了。那我稍后再联系负责人，祝您工作顺利！\n用户: 好的，今天真的不行，以后再说吧。再见。\n终止原因: sut_goodbye",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.63,
+      "passed": false,
+      "summary": "客服: 您好，请问是川味小厨的负责人吗？我是美团商家运营专员。\n用户: 您好，我是川味小厨的骑手，不是负责人。今天真的不行，您找别人吧。\n客服: 抱歉打扰了。那我稍后再联系负责人，祝您工作顺利！\n用户: 好的，今天真的不行，以后再说吧。再见。\n终止原因: sut_goodbye"
+    }
+  ]
+}

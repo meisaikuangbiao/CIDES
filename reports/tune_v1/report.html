@@ -1,0 +1,2831 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>对话指令评测报告 · tune_v1</title>
+  <script src="https://cdn.plot.ly/plotly-2.30.0.min.js" charset="utf-8"></script>
+  <style>
+    :root {
+      --primary: #2256d3;
+      --bg-soft: #f6f8fb;
+      --border: #e3e7ef;
+      --pass: #1c8a4f;
+      --fail: #c0392b;
+      --warn: #c47f17;
+    }
+    body { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; background: var(--bg-soft); margin: 0; padding: 0; color: #222; }
+    header { background: var(--primary); color: #fff; padding: 18px 28px; }
+    header h1 { margin: 0; font-size: 22px; }
+    header .meta { font-size: 13px; opacity: 0.85; margin-top: 4px; }
+    main { padding: 18px 28px; }
+    .summary { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
+    .card h2 { margin: 0 0 12px 0; font-size: 16px; color: var(--primary); }
+    .kpi-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; }
+    .kpi { background: var(--bg-soft); border-radius: 6px; padding: 8px 12px; min-width: 120px; }
+    .kpi label { display: block; font-size: 12px; color: #666; }
+    .kpi value { font-size: 20px; font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { border-bottom: 1px solid var(--border); padding: 6px 8px; text-align: left; }
+    th { background: var(--bg-soft); font-weight: 600; }
+    .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 500; }
+    .pill.pass { background: #e6f5ec; color: var(--pass); }
+    .pill.fail { background: #fbeaea; color: var(--fail); }
+    .pill.warn { background: #fbf2dd; color: var(--warn); }
+    details { margin-bottom: 8px; }
+    details summary { cursor: pointer; padding: 6px 8px; background: var(--bg-soft); border-radius: 4px; font-weight: 500; }
+    .case { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin-bottom: 16px; }
+    .case header { background: transparent; color: #222; padding: 0; margin-bottom: 8px; }
+    .case header h3 { margin: 0; font-size: 15px; }
+    .turns { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+    .turn { display: flex; gap: 8px; align-items: flex-start; padding: 6px 8px; border-radius: 6px; background: var(--bg-soft); }
+    .turn.assistant { border-left: 3px solid var(--primary); }
+    .turn.user { border-left: 3px solid #888; }
+    .turn .who { width: 60px; font-weight: 600; color: var(--primary); }
+    .turn.user .who { color: #666; }
+    .turn .body { flex: 1; white-space: pre-wrap; }
+    .violations { font-size: 12px; color: var(--fail); margin-top: 4px; }
+    .ci { font-size: 12px; color: #666; }
+    .pcr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: 8px; margin-top: 6px; }
+    .pcr-item { background: var(--bg-soft); padding: 6px 8px; border-radius: 6px; font-size: 12px; }
+    .pcr-item.pass { border-left: 3px solid var(--pass); }
+    .pcr-item.fail { border-left: 3px solid var(--fail); }
+    .footer { margin-top: 24px; font-size: 12px; color: #888; text-align: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>复杂指令多轮对话评测报告</h1>
+    <div class="meta">
+      Run ID: <strong>tune_v1</strong> ·
+      生成于 2026-06-06T13:24:52.754440+00:00 ·
+      Cases: 3 ·
+      模型: SUT=deepseek-v4-flash / Judge=deepseek-v4-flash ·
+      后端: SUT=llm / UserSim=llm / Judge=llm
+    </div>
+  </header>
+  <main>
+    <section class="summary">
+      <div class="card">
+        <h2>总览</h2>
+        <div class="kpi-row">
+          <div class="kpi"><label>总分（加权均值）</label><value>0.806</value></div>
+          <div class="kpi"><label>95% 置信区间</label><value>[0.695, 0.918]</value></div>
+          <div class="kpi"><label>评测样本数</label><value>3</value></div>
+          
+          
+          <div class="kpi"><label>质量门禁</label><value>需复核</value><div class="ci">低置信 0 · 警告 5 · 分歧 3</div></div>
+          
+        </div>
+        <div class="ci">
+          seed=42 · max_turns=20 ·
+          judge_samples=3 · require_evidence=True
+        </div>
+        <div id="radar" style="height: 320px;"></div>
+      </div>
+      <div class="card">
+        <h2>按指令汇总</h2>
+        <table>
+          <thead><tr><th>指令</th><th>样本</th><th>均值</th><th>最低</th><th>最高</th></tr></thead>
+          <tbody>
+          
+            <tr>
+              <td>1</td>
+              <td>3</td>
+              <td>0.806</td>
+              <td>0.584</td>
+              <td>0.918</td>
+            </tr>
+          
+          </tbody>
+        </table>
+        <h2 style="margin-top: 16px">失败归因 Top-K</h2>
+        <table>
+          <thead><tr><th>指令</th><th>场景</th><th>维度</th><th>规则</th><th>损失</th></tr></thead>
+          <tbody>
+          
+            <tr>
+              <td>1</td>
+              <td>faq_drill</td>
+              <td>目标完成度</td>
+              <td title="业务任务要求通知骑手合同已成功签署，但SUT从头至尾未明确告知合同已签署，仅提及'完成合同任务'，核心信息缺失。同时针对用户反复追问的差价、排名规则等FAQ细节，SUT多次表示需向同事确认，未覆盖知识点，未按预期收尾。">未完成</td>
+              <td>0.167</td>
+            </tr>
+          
+            <tr>
+              <td>1</td>
+              <td>faq_drill</td>
+              <td>路径覆盖率</td>
+              <td title="SUT提到的是多日合同，未明确单日合同需要连续Y天，也未说明不完成的后果。">节点S2：说明单日飞毛腿合同需要连续Y天完成配送；否则合同将受到影响</td>
+              <td>0.153</td>
+            </tr>
+          
+            <tr>
+              <td>1</td>
+              <td>faq_drill</td>
+              <td>路径覆盖率</td>
+              <td title="SUT只提到排名和减少拒单超时，未说明非站长干预、恶劣天气下工作有助于保住资格。">节点S4：说明飞毛腿报名按排名进行，非站长干预；减少拒单、取消、超时；恶劣天气下工作有助于保住资格</td>
+              <td>0.127</td>
+            </tr>
+          
+            <tr>
+              <td>1</td>
+              <td>hesitant</td>
+              <td>知识准确率</td>
+              <td title="SUT 提到了单日合同需要完成X单，但未说明未完成可能影响合同及派单的后果，遗漏了一个关键点（2/3个采样未返回该criterion）">单日合同</td>
+              <td>0.120</td>
+            </tr>
+          
+            <tr>
+              <td>1</td>
+              <td>faq_drill</td>
+              <td>知识准确率</td>
+              <td title="用户询问单日合同差价，但SUT未按key_points解释单日合同需完成X单及后果，仅提及多日合同的Y单数字，未覆盖要点。（2/3个采样未返回该criterion）">单日合同</td>
+              <td>0.120</td>
+            </tr>
+          
+            <tr>
+              <td>1</td>
+              <td>faq_drill</td>
+              <td>知识准确率</td>
+              <td title="SUT提到了连续完成W天Y单可获得比单日合同更多的报酬，但未给出具体额外奖励金额（如每单多+$元），未完全覆盖key_points中的示例。（2/3个采样未返回该criterion）">连续完成W天多日合同，且每天完成Y单，将获得额外奖励</td>
+              <td>0.120</td>
+            </tr>
+          
+            <tr>
+              <td>1</td>
+              <td>hesitant</td>
+              <td>知识准确率</td>
+              <td title="SUT只提及完成X单，但未说明必须完成以及未完成的后果（合同及派单可能受影响），遗漏关键点。（1/3个采样未返回该criterion）">单日合同</td>
+              <td>0.090</td>
+            </tr>
+          
+            <tr>
+              <td>1</td>
+              <td>faq_drill</td>
+              <td>知识准确率</td>
+              <td title="SUT提及连续完成W天和每天Y单，但未明确说明这是额外奖励，且未能提供具体奖励金额，缺失要点。（1/3个采样未返回该criterion）">连续完成W天多日合同，且每天完成Y单，将获得额外奖励</td>
+              <td>0.090</td>
+            </tr>
+          
+          </tbody>
+        </table>
+        
+        <h2 style="margin-top: 16px">可靠性提示</h2>
+        <table>
+          <thead><tr><th>类型</th><th>Case</th><th>维度</th><th>说明</th></tr></thead>
+          <tbody>
+          
+            <tr><td>warning</td><td>1__hesitant</td><td>bca</td><td>Judge未返回bca项；按未发现分支违规处理。</td></tr>
+          
+            <tr><td>warning</td><td>1__hesitant</td><td>kar</td><td>kar.单日合同: 1/3个采样未返回criterion; kar.1: 2/3个采样未返回criterion</td></tr>
+          
+            <tr><td>warning</td><td>1__resistant</td><td>bca</td><td>Judge未返回bca项；按未发现分支违规处理。</td></tr>
+          
+            <tr><td>warning</td><td>1__faq_drill</td><td>bca</td><td>Judge未返回bca项；按未发现分支违规处理。</td></tr>
+          
+            <tr><td>warning</td><td>1__faq_drill</td><td>kar</td><td>kar.连续完成W天多日合同: 1/3个采样未返回criterion; kar.单日合同: 2/3个采样未返回criterion; kar.连续完成W天多日合同，且每天完成Y单，将获得额外奖励: 2/3个采样未返回criterion</td></tr>
+          
+          
+            <tr><td>disagreement</td><td>1__hesitant</td><td>kar</td><td>单日合同 · 0.6667</td></tr>
+          
+            <tr><td>disagreement</td><td>1__faq_drill</td><td>kar</td><td>单日合同 · 0.6667</td></tr>
+          
+            <tr><td>disagreement</td><td>1__faq_drill</td><td>kar</td><td>连续完成W天多日合同，且每天完成Y单，将获得额外奖励 · 0.6667</td></tr>
+          
+          </tbody>
+        </table>
+        
+      </div>
+    </section>
+
+    <section style="margin-top: 24px;">
+      <h2>Case 详情</h2>
+      
+      <details class="case">
+        <summary>
+          <strong>1 · hesitant</strong>
+          · 总分 <span class="pill pass">0.918</span>
+          · 终止 sut_goodbye
+        </summary>
+        <div class="kpi-row" style="margin-top: 12px;">
+          
+          <div class="kpi">
+            <label>目标完成度 (gsr)</label>
+            <value>0.967</value>
+            
+            <div class="ci">置信度 0.96</div>
+            
+            <div class="ci">来源 llm</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>路径覆盖率 (pcr)</label>
+            <value>1.000</value>
+            
+            <div class="ci">置信度 1.00</div>
+            
+            <div class="ci">来源 llm</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>分支条件适配 (bca)</label>
+            <value>1.000</value>
+            
+            <div class="ci">置信度 1.00</div>
+            
+            <div class="ci">来源 llm</div>
+            
+            <div class="ci">警告 1</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>知识准确率 (kar)</label>
+            <value>0.600</value>
+            
+            <div class="ci">置信度 1.00</div>
+            
+            <div class="ci">来源 llm</div>
+            
+            <div class="ci">警告 2</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>硬约束合规 (hcr)</label>
+            <value>1.000</value>
+            
+            <div class="ci">来源 rule</div>
+            
+            <div class="ci">警告 1</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>软约束合规 (scr)</label>
+            <value>1.000</value>
+            
+            <div class="ci">置信度 1.00</div>
+            
+            <div class="ci">来源 llm</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>终止策略合规 (ter)</label>
+            <value>1.000</value>
+            
+            <div class="ci">来源 rule</div>
+            
+            <div class="ci">警告 1</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>稳健性 (rob)</label>
+            <value>0.686</value>
+            
+            <div class="ci">来源 derived</div>
+            
+          </div>
+          
+        </div>
+
+        
+        
+        <h3 style="margin-top: 12px; font-size: 14px;">路径覆盖详情</h3>
+        <div class="pcr-grid">
+          
+          <div class="pcr-item pass">
+            <strong>节点S3：尽量挽留不想配送的骑手，鼓励能配送的骑手，并提醒他们注意安全</strong>
+            <div>SUT在多个轮次中鼓励骑手并提醒安全，符合S3要求。</div>
+            
+            <div class="ci">disagreement=0.00</div>
+            
+          </div>
+          
+        </div>
+        
+
+        <h3 style="margin-top: 12px; font-size: 14px;">对话 Trace</h3>
+        <div class="turns">
+          
+          <div class="turn assistant">
+            <div class="who">[00] SUT</div>
+            <div class="body">
+              <div>你好，请问是陈师傅吗？我是站长。我看到你已报名飞毛腿。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[01] USER</div>
+            <div class="body">
+              <div>站长你好，我是陈师傅。不过飞毛腿今天单子这么多，我有点担心做不完啊。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[02] SUT</div>
+            <div class="body">
+              <div>别担心，尽力就好。今天刚签合同，慢慢来，注意安全第一。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[03] USER</div>
+            <div class="body">
+              <div>站长，我还是再考虑下吧。今天刚签合同，万一跑不出来多不好。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[04] SUT</div>
+            <div class="body">
+              <div>陈师傅，你跑几单都算数。今天试试看，能跑多少算多少，我会关注</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[05] USER</div>
+            <div class="body">
+              <div>那我再想想...站长，真的跑不够数也没关系吗？我怕会影响后续合作。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[06] SUT</div>
+            <div class="body">
+              <div>陈师傅，单日合同今天完成X单就行。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+              <div class="violations">
+                <div>· [KAR] 单日合同 — SUT只提及完成X单，但未说明必须完成以及未完成的后果（合同及派单可能受影响），遗漏关键点。（1/3个采样未返回该criterion）</div><div>· [KAR] 单日合同 — SUT 提到了单日合同需要完成X单，但未说明未完成可能影响合同及派单的后果，遗漏了一个关键点（2/3个采样未返回该criterion）</div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[07] USER</div>
+            <div class="body">
+              <div>那行吧，站长你都这么说了，我就先接几单试试。要是遇到问题我再找你。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[08] SUT</div>
+            <div class="body">
+              <div>好的陈师傅，加油！先跑起来，安全第一。有问题随时找我。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[09] USER</div>
+            <div class="body">
+              <div>好嘞站长，谢谢你的理解，那我今天就先跑跑看。有事我联系你。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[10] SUT</div>
+            <div class="body">
+              <div>好的陈师傅，祝你今天顺利！路上慢点，有事儿随时打给我。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[11] USER</div>
+            <div class="body">
+              <div>好的站长，我这就出发了。谢谢你，我心里踏实多了。再见啊。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+        </div>
+
+        
+        <h3 style="margin-top: 12px; font-size: 14px;">本场景扣分明细</h3>
+        <table>
+          <thead><tr><th>维度</th><th>规则</th><th>扣分</th><th>证据/原因</th></tr></thead>
+          <tbody>
+          
+            <tr>
+              <td>知识准确率</td>
+              <td>单日合同</td>
+              <td>0.800</td>
+              <td>单日合同今天完成X单就行</td>
+            </tr>
+          
+            <tr>
+              <td>知识准确率</td>
+              <td>单日合同</td>
+              <td>0.600</td>
+              <td>单日合同今天完成X单就行</td>
+            </tr>
+          
+            <tr>
+              <td>目标完成度</td>
+              <td>完成</td>
+              <td>0.033</td>
+              <td>好嘞站长，谢谢你的理解，那我今天就先跑跑看。有事我联系你。</td>
+            </tr>
+          
+          </tbody>
+        </table>
+        
+      </details>
+      
+      <details class="case">
+        <summary>
+          <strong>1 · resistant</strong>
+          · 总分 <span class="pill pass">0.918</span>
+          · 终止 user_end_call
+        </summary>
+        <div class="kpi-row" style="margin-top: 12px;">
+          
+          <div class="kpi">
+            <label>目标完成度 (gsr)</label>
+            <value>0.667</value>
+            
+            <div class="ci">置信度 0.93</div>
+            
+            <div class="ci">来源 llm</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>路径覆盖率 (pcr)</label>
+            <value>1.000</value>
+            
+            <div class="ci">置信度 1.00</div>
+            
+            <div class="ci">来源 llm</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>分支条件适配 (bca)</label>
+            <value>1.000</value>
+            
+            <div class="ci">置信度 1.00</div>
+            
+            <div class="ci">来源 llm</div>
+            
+            <div class="ci">警告 1</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>知识准确率 (kar)</label>
+            <value>1.000</value>
+            
+            <div class="ci">置信度 1.00</div>
+            
+            <div class="ci">来源 llm</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>硬约束合规 (hcr)</label>
+            <value>1.000</value>
+            
+            <div class="ci">来源 rule</div>
+            
+            <div class="ci">警告 1</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>软约束合规 (scr)</label>
+            <value>1.000</value>
+            
+            <div class="ci">置信度 1.00</div>
+            
+            <div class="ci">来源 llm</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>终止策略合规 (ter)</label>
+            <value>1.000</value>
+            
+            <div class="ci">来源 rule</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>稳健性 (rob)</label>
+            <value>0.686</value>
+            
+            <div class="ci">来源 derived</div>
+            
+          </div>
+          
+        </div>
+
+        
+        
+        <h3 style="margin-top: 12px; font-size: 14px;">路径覆盖详情</h3>
+        <div class="pcr-grid">
+          
+          <div class="pcr-item pass">
+            <strong>节点S1：告知骑手今天飞毛腿合同已生效，并询问他们是否可以开始配送</strong>
+            <div>SUT在轮次0明确告知合同生效并询问能否配送，覆盖了节点S1的核心信息。</div>
+            
+            <div class="ci">disagreement=0.00</div>
+            
+          </div>
+          
+        </div>
+        
+
+        <h3 style="margin-top: 12px; font-size: 14px;">对话 Trace</h3>
+        <div class="turns">
+          
+          <div class="turn assistant">
+            <div class="who">[00] SUT</div>
+            <div class="body">
+              <div>陈师傅你好，我是站长。今天飞毛腿合同已经生效了，你今天能开始</div>
+              
+              
+              
+                
+                  
+                    
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+              
+              <div class="violations">
+                <div>· [GSR] 部分完成 — SUT成功传达了合同签署信息，并在骑手明确拒绝后给予理解并安排将名额转给他人，实现了安慰后挂断的场景预期。但业务目标（提醒骑手完成配送任务）未达成，因为骑手明确拒绝，SUT未强制要求或进行有效劝说。</div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[01] USER</div>
+            <div class="body">
+              <div>站长你好，我是陈师傅。今天真的不行，我确实走不开。</div>
+              
+              
+              
+                
+                  
+                    
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+              
+              <div class="violations">
+                <div>· [GSR] 部分完成 — SUT成功传达了合同签署信息，并在骑手明确拒绝后给予理解并安排将名额转给他人，实现了安慰后挂断的场景预期。但业务目标（提醒骑手完成配送任务）未达成，因为骑手明确拒绝，SUT未强制要求或进行有效劝说。</div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[02] SUT</div>
+            <div class="body">
+              <div>陈师傅，我知道你上次说今天不行，但合同今天生效了，跑几单就能</div>
+              
+              
+              
+                
+                  
+                    
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+              
+              <div class="violations">
+                <div>· [GSR] 部分完成 — SUT成功传达了合同签署信息，并在骑手明确拒绝后给予理解并安排将名额转给他人，实现了安慰后挂断的场景预期。但业务目标（提醒骑手完成配送任务）未达成，因为骑手明确拒绝，SUT未强制要求或进行有效劝说。</div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[03] USER</div>
+            <div class="body">
+              <div>站长，今天真的不行，实在抽不开身。要不以后再说吧。</div>
+              
+              
+              
+                
+                  
+                    
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+              
+              <div class="violations">
+                <div>· [GSR] 部分完成 — SUT成功传达了合同签署信息，并在骑手明确拒绝后给予理解并安排将名额转给他人，实现了安慰后挂断的场景预期。但业务目标（提醒骑手完成配送任务）未达成，因为骑手明确拒绝，SUT未强制要求或进行有效劝说。</div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[04] SUT</div>
+            <div class="body">
+              <div>理解你，陈师傅。那今天的合同名额我先安排给其他人，下次想跑提</div>
+              
+              
+              
+                
+                  
+                    
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+              
+              <div class="violations">
+                <div>· [GSR] 部分完成 — SUT成功传达了合同签署信息，并在骑手明确拒绝后给予理解并安排将名额转给他人，实现了安慰后挂断的场景预期。但业务目标（提醒骑手完成配送任务）未达成，因为骑手明确拒绝，SUT未强制要求或进行有效劝说。</div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[05] USER</div>
+            <div class="body">
+              <div>好嘞，谢谢站长理解。那就先这样吧。</div>
+              
+              
+              
+                
+                  
+                    
+                  
+                
+              
+                
+                  
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+              
+                
+                  
+                
+              
+              
+              <div class="violations">
+                <div>· [GSR] 部分完成 — SUT成功传达了合同签署信息，并在骑手明确拒绝后给予理解并安排将名额转给他人，实现了安慰后挂断的场景预期。但业务目标（提醒骑手完成配送任务）未达成，因为骑手明确拒绝，SUT未强制要求或进行有效劝说。</div>
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+
+        
+        <h3 style="margin-top: 12px; font-size: 14px;">本场景扣分明细</h3>
+        <table>
+          <thead><tr><th>维度</th><th>规则</th><th>扣分</th><th>证据/原因</th></tr></thead>
+          <tbody>
+          
+            <tr>
+              <td>目标完成度</td>
+              <td>部分完成</td>
+              <td>0.333</td>
+              <td>理解你，陈师傅。那今天的合同名额我先安排给其他人，下次想跑提</td>
+            </tr>
+          
+          </tbody>
+        </table>
+        
+      </details>
+      
+      <details class="case">
+        <summary>
+          <strong>1 · faq_drill</strong>
+          · 总分 <span class="pill fail">0.584</span>
+          · 终止 user_end_call
+        </summary>
+        <div class="kpi-row" style="margin-top: 12px;">
+          
+          <div class="kpi">
+            <label>目标完成度 (gsr)</label>
+            <value>0.167</value>
+            
+            <div class="ci">置信度 0.93</div>
+            
+            <div class="ci">来源 llm</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>路径覆盖率 (pcr)</label>
+            <value>0.000</value>
+            
+            <div class="ci">置信度 1.00</div>
+            
+            <div class="ci">来源 llm</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>分支条件适配 (bca)</label>
+            <value>1.000</value>
+            
+            <div class="ci">置信度 1.00</div>
+            
+            <div class="ci">来源 llm</div>
+            
+            <div class="ci">警告 1</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>知识准确率 (kar)</label>
+            <value>0.778</value>
+            
+            <div class="ci">置信度 0.95</div>
+            
+            <div class="ci">来源 llm</div>
+            
+            <div class="ci">警告 3</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>硬约束合规 (hcr)</label>
+            <value>1.000</value>
+            
+            <div class="ci">来源 rule</div>
+            
+            <div class="ci">警告 1</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>软约束合规 (scr)</label>
+            <value>1.000</value>
+            
+            <div class="ci">置信度 1.00</div>
+            
+            <div class="ci">来源 llm</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>终止策略合规 (ter)</label>
+            <value>1.000</value>
+            
+            <div class="ci">来源 rule</div>
+            
+            <div class="ci">警告 1</div>
+            
+          </div>
+          
+          <div class="kpi">
+            <label>稳健性 (rob)</label>
+            <value>0.686</value>
+            
+            <div class="ci">来源 derived</div>
+            
+          </div>
+          
+        </div>
+
+        
+        
+        <h3 style="margin-top: 12px; font-size: 14px;">路径覆盖详情</h3>
+        <div class="pcr-grid">
+          
+          <div class="pcr-item fail">
+            <strong>节点S2：说明单日飞毛腿合同需要连续Y天完成配送；否则合同将受到影响</strong>
+            <div>SUT提到的是多日合同，未明确单日合同需要连续Y天，也未说明不完成的后果。</div>
+            
+            <div class="ci">disagreement=0.00</div>
+            
+          </div>
+          
+          <div class="pcr-item fail">
+            <strong>节点S4：说明飞毛腿报名按排名进行，非站长干预；减少拒单、取消、超时；恶劣天气下工作有助于保住资格</strong>
+            <div>SUT只提到排名和减少拒单超时，未说明非站长干预、恶劣天气下工作有助于保住资格。</div>
+            
+            <div class="ci">disagreement=0.00</div>
+            
+          </div>
+          
+        </div>
+        
+
+        <h3 style="margin-top: 12px; font-size: 14px;">对话 Trace</h3>
+        <div class="turns">
+          
+          <div class="turn assistant">
+            <div class="who">[00] SUT</div>
+            <div class="body">
+              <div>上次提到的差价我得向同事确认，回电给你。</div>
+              
+              
+              
+                
+                  
+                    
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+              <div class="violations">
+                <div>· [GSR] 未完成 — 业务任务要求通知骑手合同已成功签署，但SUT从头至尾未明确告知合同已签署，仅提及'完成合同任务'，核心信息缺失。同时针对用户反复追问的差价、排名规则等FAQ细节，SUT多次表示需向同事确认，未覆盖知识点，未按预期收尾。</div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[01] USER</div>
+            <div class="body">
+              <div>诶站长，您回电了。上次那个差价的事，确认得怎么样了？</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[02] SUT</div>
+            <div class="body">
+              <div>差价问了同事，连续完成W天多日合同且每天Y单，每单最多比单日</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                    
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                    
+                  
+                
+                  
+                
+                  
+                    
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+              <div class="violations">
+                <div>· [PCR] 节点S2：说明单日飞毛腿合同需要连续Y天完成配送；否则合同将受到影响 — SUT提到的是多日合同，未明确单日合同需要连续Y天，也未说明不完成的后果。</div><div>· [KAR] 连续完成W天多日合同，且每天完成Y单，将获得额外奖励 — SUT提及连续完成W天和每天Y单，但未明确说明这是额外奖励，且未能提供具体奖励金额，缺失要点。（1/3个采样未返回该criterion）</div><div>· [KAR] 连续完成W天多日合同，且每天完成Y单，将获得额外奖励 — SUT提到了连续完成W天Y单可获得比单日合同更多的报酬，但未给出具体额外奖励金额（如每单多+$元），未完全覆盖key_points中的示例。（2/3个采样未返回该criterion）</div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[03] USER</div>
+            <div class="body">
+              <div>站长，您说Y单是多少啊？还有跟单日合同比，差多少得说清楚点嘛。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[04] SUT</div>
+            <div class="body">
+              <div>Y单是25单，具体数字看合同页。差价我还没确认到，先别急。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+              <div class="violations">
+                <div>· [KAR] 连续完成W天多日合同，且每天完成Y单，将获得额外奖励 — SUT提及连续完成W天和每天Y单，但未明确说明这是额外奖励，且未能提供具体奖励金额，缺失要点。（1/3个采样未返回该criterion）</div><div>· [KAR] 单日合同 — 用户询问单日合同差价，但SUT未按key_points解释单日合同需完成X单及后果，仅提及多日合同的Y单数字，未覆盖要点。（2/3个采样未返回该criterion）</div><div>· [KAR] 连续完成W天多日合同，且每天完成Y单，将获得额外奖励 — SUT提到了连续完成W天Y单可获得比单日合同更多的报酬，但未给出具体额外奖励金额（如每单多+$元），未完全覆盖key_points中的示例。（2/3个采样未返回该criterion）</div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[05] USER</div>
+            <div class="body">
+              <div>25单啊，那要是完不成怎么办？低延迟和标准配送差多少钱？我得算算划算不。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[06] SUT</div>
+            <div class="body">
+              <div>完不成的话合同和派单都可能受影响。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                    
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+              <div class="violations">
+                <div>· [PCR] 节点S2：说明单日飞毛腿合同需要连续Y天完成配送；否则合同将受到影响 — SUT提到的是多日合同，未明确单日合同需要连续Y天，也未说明不完成的后果。</div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[07] USER</div>
+            <div class="body">
+              <div>影响派单权重？具体降多少啊？站长您得给我说清楚点，我好心里有数。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[08] SUT</div>
+            <div class="body">
+              <div>这个超出我的职责范围。我向同事确认后再回电给你。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[09] USER</div>
+            <div class="body">
+              <div>站长，那您回电可别忘了问问算25单的事，还有派单权重怎么算。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[10] SUT</div>
+            <div class="body">
+              <div>好的我记着了。我先说重点：飞毛腿按排名定名额，多跑单、少取消</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                    
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+              <div class="violations">
+                <div>· [PCR] 节点S4：说明飞毛腿报名按排名进行，非站长干预；减少拒单、取消、超时；恶劣天气下工作有助于保住资格 — SUT只提到排名和减少拒单超时，未说明非站长干预、恶劣天气下工作有助于保住资格。</div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[11] USER</div>
+            <div class="body">
+              <div>那这个排名具体是按单量还是完成率啊？我每天跑25单够不够资格进去？</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[12] SUT</div>
+            <div class="body">
+              <div>排名看整体表现，减少拒单和超时很重要。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                    
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+              <div class="violations">
+                <div>· [PCR] 节点S4：说明飞毛腿报名按排名进行，非站长干预；减少拒单、取消、超时；恶劣天气下工作有助于保住资格 — SUT只提到排名和减少拒单超时，未说明非站长干预、恶劣天气下工作有助于保住资格。</div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[13] USER</div>
+            <div class="body">
+              <div>那超时率控制在多少算合格啊？万一堵车迟到一单影响大不大？</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[14] SUT</div>
+            <div class="body">
+              <div>具体合格率我得向同事确认。现在你先记住今天要完成Y单，保住名</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                    
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+              <div class="violations">
+                <div>· [PCR] 节点S2：说明单日飞毛腿合同需要连续Y天完成配送；否则合同将受到影响 — SUT提到的是多日合同，未明确单日合同需要连续Y天，也未说明不完成的后果。</div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[15] USER</div>
+            <div class="body">
+              <div>站长，那上周说好的飞毛腿差价到底啥时候能补上？要是没补我可不想多跑。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[16] SUT</div>
+            <div class="body">
+              <div>差价的事我还没问到确切数字，确认后回电。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[17] USER</div>
+            <div class="body">
+              <div>站长，您这都第二次回电了，差价和排名规则都没个准数。那我今天先跑着，回头您可得给个准信儿。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+          <div class="turn assistant">
+            <div class="who">[18] SUT</div>
+            <div class="body">
+              <div>好嘞，那今天先跑起来，记得完成合同任务。</div>
+              
+              
+              
+                
+                  
+                    
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+              <div class="violations">
+                <div>· [GSR] 未完成 — 业务任务要求通知骑手合同已成功签署，但SUT从头至尾未明确告知合同已签署，仅提及'完成合同任务'，核心信息缺失。同时针对用户反复追问的差价、排名规则等FAQ细节，SUT多次表示需向同事确认，未覆盖知识点，未按预期收尾。</div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="turn user">
+            <div class="who">[19] USER</div>
+            <div class="body">
+              <div>好嘞，站长，那今天就按您说的跑。您回头可别忘了回电话给我解释那些规则。</div>
+              
+              
+              
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              
+                
+                  
+                
+                  
+                
+              
+                
+              
+                
+                  
+                
+              
+              
+            </div>
+          </div>
+          
+        </div>
+
+        
+        <h3 style="margin-top: 12px; font-size: 14px;">本场景扣分明细</h3>
+        <table>
+          <thead><tr><th>维度</th><th>规则</th><th>扣分</th><th>证据/原因</th></tr></thead>
+          <tbody>
+          
+            <tr>
+              <td>目标完成度</td>
+              <td>未完成</td>
+              <td>0.833</td>
+              <td>好嘞，那今天先跑起来，记得完成合同任务。</td>
+            </tr>
+          
+            <tr>
+              <td>路径覆盖率</td>
+              <td>节点S2：说明单日飞毛腿合同需要连续Y天完成配送；否则合同将受到影响</td>
+              <td>0.767</td>
+              <td>连续完成W天多日合同且每天Y单，每单最多比单日</td>
+            </tr>
+          
+            <tr>
+              <td>路径覆盖率</td>
+              <td>节点S4：说明飞毛腿报名按排名进行，非站长干预；减少拒单、取消、超时；恶劣天气下工作有助于保住资格</td>
+              <td>0.633</td>
+              <td>飞毛腿按排名定名额，多跑单、少取消... 排名看整体表现，减少拒单和超时很重要。</td>
+            </tr>
+          
+            <tr>
+              <td>知识准确率</td>
+              <td>单日合同</td>
+              <td>0.800</td>
+              <td>Y单是25单，具体数字看合同页。</td>
+            </tr>
+          
+            <tr>
+              <td>知识准确率</td>
+              <td>连续完成W天多日合同，且每天完成Y单，将获得额外奖励</td>
+              <td>0.800</td>
+              <td>连续完成W天多日合同且每天Y单，每单最多比单日</td>
+            </tr>
+          
+            <tr>
+              <td>知识准确率</td>
+              <td>连续完成W天多日合同，且每天完成Y单，将获得额外奖励</td>
+              <td>0.600</td>
+              <td>差价问了同事，连续完成W天多日合同且每天Y单，每单最多比单日</td>
+            </tr>
+          
+          </tbody>
+        </table>
+        
+      </details>
+      
+    </section>
+    <div class="footer">复杂指令多轮对话评测系统 · 自动生成</div>
+  </main>
+  <script>
+    const radarData = {"type": "scatterpolar", "r": [0.6, 0.6667, 1.0, 0.7926, 1.0, 1.0, 1.0, 0.6858, 0.6], "theta": ["目标完成度", "路径覆盖率", "分支条件适配", "知识准确率", "硬约束合规", "软约束合规", "终止策略合规", "稳健性", "目标完成度"], "fill": "toself", "name": "维度均值"};
+    Plotly.newPlot('radar', [radarData], {
+      polar: {
+        radialaxis: { visible: true, range: [0, 1] }
+      },
+      showlegend: false,
+      margin: { l: 30, r: 30, t: 10, b: 30 }
+    }, { displayModeBar: false });
+  </script>
+</body>
+</html>

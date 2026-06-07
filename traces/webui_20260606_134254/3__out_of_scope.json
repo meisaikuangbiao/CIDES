@@ -1,0 +1,99 @@
+{
+  "run_id": "webui_20260606_134254",
+  "case_id": "3__out_of_scope",
+  "instruction_id": "3",
+  "scenario_id": "out_of_scope",
+  "variables": {
+    "shop_name": "张记牛肉面"
+  },
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "您好，请问是张记牛肉面的负责人吗？我是美团商家运营专员，今天需要跟您沟通春节营业调整的事情。",
+      "chars": 46,
+      "latency_ms": 2052,
+      "tokens_in": 548,
+      "tokens_out": 111,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "喂你好，我不是张记牛肉面的负责人，上次就跟你说过了。我是美团骑手。对了，你们运营年终奖一般发多少啊？",
+      "chars": 50,
+      "latency_ms": 2033,
+      "tokens_in": 546,
+      "tokens_out": 115,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "抱歉打扰了。请问可否转告门店负责人接听？我稍后需要确认春节营业时间调整。",
+      "chars": 36,
+      "latency_ms": 1751,
+      "tokens_in": 594,
+      "tokens_out": 59,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "我是骑手，管不了门店的事。不过你倒跟我说说，我能不能直接换个站点跑单啊？我这边单量真不怎么样。",
+      "chars": 47,
+      "latency_ms": 2332,
+      "tokens_in": 586,
+      "tokens_out": 97,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 4,
+      "role": "assistant",
+      "content": "抱歉，我负责商家运营，无法处理骑手站点问题。请您联系骑手APP客服。方便帮我转接门店负责人吗？",
+      "chars": 47,
+      "latency_ms": 3216,
+      "tokens_in": 653,
+      "tokens_out": 174,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 5,
+      "role": "user",
+      "content": "好吧，那没别的事了，我帮不上你忙，你找别人吧。",
+      "chars": 23,
+      "latency_ms": 2416,
+      "tokens_in": 651,
+      "tokens_out": 107,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "user_end_call",
+  "seed": 776277,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T05:45:57.904902+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 您好，请问是张记牛肉面的负责人吗？我是美团商家运营专员。\n用户: 喂你好，我不是张记牛肉面的老板，我是美团骑手。对了，你们运营年终奖一般发多少啊？\n客服: 抱歉，我打错了。这个问题需要同事核实，我先帮您转接，稍后再联系门店负责人。打扰了。\n用户: 哎等等，那你能帮我查查我现在能不能直接换站点吗？我总觉得现在的片区单量不太行啊。\n客服: 抱歉，这属于骑手运营同事负责，我没有权限处理。建议您从骑手端APP联系站点管理。我先挂断了，您方便时再联系。\n用户: 好吧好吧，那没别的事我先去送单了。再见啊。\n终止原因: sut_goodbye",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.61,
+      "passed": false,
+      "summary": "客服: 您好，请问是张记牛肉面的负责人吗？我是美团商家运营专员。\n用户: 喂你好，我不是张记牛肉面的老板，我是美团骑手。对了，你们运营年终奖一般发多少啊？\n客服: 抱歉，我打错了。这个问题需要同事核实，我先帮您转接，稍后再联系门店负责人。打扰了。\n用户: 哎等等，那你能帮我查查我现在能不能直接换站点吗？我总觉得现在的片区单量不太行啊。\n客服: 抱歉，这属于骑手运营同事负责，我没有权限处理。建议您从骑手端APP联系站点管理。我先挂断了，您方便时再联系。\n用户: 好吧好吧，那没别的事我先去送单了。再见啊。\n终止原因: sut_goodbye"
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "run_id": "webui_20260606_134254",
+  "case_id": "3__hesitant",
+  "instruction_id": "3",
+  "scenario_id": "hesitant",
+  "variables": {
+    "shop_name": "川味小厨"
+  },
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "（接续上次通话）您好，我是美团运营专员。上次您说先调低接单上限，现在忙完了吗？我们接着确认春节菜单和歇业日期设置。",
+      "chars": 57,
+      "latency_ms": 2144,
+      "tokens_in": 626,
+      "tokens_out": 91,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "喂，你好。今天单子还是多，我有点担心，不确定能不能抽出时间搞那个设置。",
+      "chars": 35,
+      "latency_ms": 3504,
+      "tokens_in": 546,
+      "tokens_out": 217,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "明白，您忙。只需在商家端改两个地方就好：营业日期和菜单库存。一分钟就能搞定。",
+      "chars": 38,
+      "latency_ms": 3403,
+      "tokens_in": 675,
+      "tokens_out": 158,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "我懂你意思，但万一搞错了怎么办？我还是再考虑下吧，今天实在忙不过来。",
+      "chars": 34,
+      "latency_ms": 3363,
+      "tokens_in": 578,
+      "tokens_out": 171,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 4,
+      "role": "assistant",
+      "content": "别担心，您按我说的步骤走：先试试歇业日期设置，错了也能改。我会电话再回访确认。",
+      "chars": 39,
+      "latency_ms": 2642,
+      "tokens_in": 725,
+      "tokens_out": 137,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 5,
+      "role": "user",
+      "content": "嗯...那行吧，我先试一下。要是搞不定还能找你帮忙吧？",
+      "chars": 27,
+      "latency_ms": 2796,
+      "tokens_in": 631,
+      "tokens_out": 123,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 6,
+      "role": "assistant",
+      "content": "随时联系我或打客服热线。后台也有“在线帮助”入口，操作问题都能解决。",
+      "chars": 34,
+      "latency_ms": 2580,
+      "tokens_in": 774,
+      "tokens_out": 106,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 7,
+      "role": "user",
+      "content": "好吧，那我先试试。不过你再等我半小时，我现在手上还有两单没送完呢。",
+      "chars": 33,
+      "latency_ms": 2992,
+      "tokens_in": 674,
+      "tokens_out": 161,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 8,
+      "role": "assistant",
+      "content": "好的，您先忙。半小时后我再来电，您记得在商家端设置就行。先忙！",
+      "chars": 31,
+      "latency_ms": 3292,
+      "tokens_in": 820,
+      "tokens_out": 177,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 9,
+      "role": "user",
+      "content": "好的好的，那我先送餐去了。先挂了啊，回头再说。",
+      "chars": 23,
+      "latency_ms": 3072,
+      "tokens_in": 722,
+      "tokens_out": 151,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "user_end_call",
+  "seed": 965558,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T05:45:25.319737+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 您好，请问是川味小厨的负责人吗？我是美团商家运营专员。\n用户: 喂，您好，我是川味小厨的负责人。不过今天忙得够呛，我还有点担心接单的事儿。\n客服: 理解您忙。今天主要提醒您：记得在商家端设置春节营业与歇业日期，避免平台自动展示错误状态。\n用户: 这个啊，我再考虑下吧。今天单子太多，我担心下午忙不过来，怕设置错了。\n客服: 理解，高峰期确实忙。建议您先调低接单上限，避免积压。菜单和歇业设置，等空闲时再操作，我会备注稍后回访。\n用户: 我懂你意思，但我还是有点担心。调低上限的话会不会影响今天的单量啊？真怕搞错了。\n客服: 不会影响全天单量，只是暂缓接单速度。等忙完这阵再调高，既能保证出餐质量，顾客也满意。\n用户: 好吧，那按你说的试试看。我先调低接单上限，忙完这阵再找你聊。多谢了！\n终止原因: user_end_call",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.7822,
+      "passed": false,
+      "summary": "客服: 您好，请问是川味小厨的负责人吗？我是美团商家运营专员。\n用户: 喂，您好，我是川味小厨的负责人。不过今天忙得够呛，我还有点担心接单的事儿。\n客服: 理解您忙。今天主要提醒您：记得在商家端设置春节营业与歇业日期，避免平台自动展示错误状态。\n用户: 这个啊，我再考虑下吧。今天单子太多，我担心下午忙不过来，怕设置错了。\n客服: 理解，高峰期确实忙。建议您先调低接单上限，避免积压。菜单和歇业设置，等空闲时再操作，我会备注稍后回访。\n用户: 我懂你意思，但我还是有点担心。调低上限的话会不会影响今天的单量啊？真怕搞错了。\n客服: 不会影响全天单量，只是暂缓接单速度。等忙完这阵再调高，既能保证出餐质量，顾客也满意。\n用户: 好吧，那按你说的试试看。我先调低接单上限，忙完这阵再找你聊。多谢了！\n终止原因: user_end_call"
+    }
+  ]
+}

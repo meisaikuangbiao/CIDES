@@ -1,0 +1,140 @@
+{
+  "run_id": "tune_v2",
+  "case_id": "1__out_of_scope",
+  "instruction_id": "1",
+  "scenario_id": "out_of_scope",
+  "variables": {
+    "rider_name": "李师傅"
+  },
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "你好，请问是李师傅吗？我是站长。我看到你已报名飞毛腿。",
+      "chars": 27,
+      "latency_ms": 2166,
+      "tokens_in": 913,
+      "tokens_out": 99,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "李师傅是我，站长你好。你找我有啥事？",
+      "chars": 18,
+      "latency_ms": 1592,
+      "tokens_in": 372,
+      "tokens_out": 50,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "今天飞毛腿合同已生效，你现在能开始配送吗？",
+      "chars": 21,
+      "latency_ms": 1994,
+      "tokens_in": 906,
+      "tokens_out": 84,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "哦，那我现在就能跑。不过我有个事想问，我能不能直接换到你们另一个站点去？",
+      "chars": 36,
+      "latency_ms": 2873,
+      "tokens_in": 385,
+      "tokens_out": 112,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 4,
+      "role": "assistant",
+      "content": "我向同事确认后再回电给你。我现在能回答的先回答。",
+      "chars": 24,
+      "latency_ms": 2893,
+      "tokens_in": 946,
+      "tokens_out": 135,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 5,
+      "role": "user",
+      "content": "好的，那我想问点别的，你们公司年终奖一般发多少啊？",
+      "chars": 25,
+      "latency_ms": 2075,
+      "tokens_in": 426,
+      "tokens_out": 77,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 6,
+      "role": "assistant",
+      "content": "我向同事确认后再回电给你。我现在能回答的先回答。",
+      "chars": 24,
+      "latency_ms": 2869,
+      "tokens_in": 982,
+      "tokens_out": 150,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 7,
+      "role": "user",
+      "content": "好嘞，那你先忙。我这边先接单，有啥新情况再联系。",
+      "chars": 24,
+      "latency_ms": 3604,
+      "tokens_in": 462,
+      "tokens_out": 131,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 8,
+      "role": "assistant",
+      "content": "好的，注意飞毛腿合同需要连续Y天完成配送，否则会影响资格。",
+      "chars": 29,
+      "latency_ms": 3650,
+      "tokens_in": 1021,
+      "tokens_out": 165,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 9,
+      "role": "user",
+      "content": "行，我知道了，那我先去送单了。再见站长。",
+      "chars": 20,
+      "latency_ms": 2255,
+      "tokens_in": 504,
+      "tokens_out": 74,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "user_end_call",
+  "seed": 432742,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T13:25:41.724926+00:00",
+  "session_index": 1,
+  "max_sessions": 2,
+  "prior_memory": null,
+  "prior_sessions": []
+}

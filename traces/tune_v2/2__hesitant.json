@@ -1,0 +1,169 @@
+{
+  "run_id": "tune_v2",
+  "case_id": "2__hesitant",
+  "instruction_id": "2",
+  "scenario_id": "hesitant",
+  "variables": {},
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "您好，请问您是负责人吗？",
+      "chars": 12,
+      "latency_ms": 3756,
+      "tokens_in": 1510,
+      "tokens_out": 171,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "嗯，是我，不过我还在忙，有点担心今天的安排。",
+      "chars": 22,
+      "latency_ms": 2169,
+      "tokens_in": 500,
+      "tokens_out": 84,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "理解。就1分钟，保证简短。",
+      "chars": 13,
+      "latency_ms": 2246,
+      "tokens_in": 1489,
+      "tokens_out": 84,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "那我再考虑下吧，主要是怕万一出问题影响学生上课。",
+      "chars": 24,
+      "latency_ms": 3248,
+      "tokens_in": 508,
+      "tokens_out": 146,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 4,
+      "role": "assistant",
+      "content": "放心，您其实一直用这方案，很稳。",
+      "chars": 16,
+      "latency_ms": 2945,
+      "tokens_in": 1517,
+      "tokens_out": 122,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 5,
+      "role": "user",
+      "content": "我有点担心，毕竟今天事情太多了，怕来不及做好准备。",
+      "chars": 25,
+      "latency_ms": 2854,
+      "tokens_in": 539,
+      "tokens_out": 123,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 6,
+      "role": "assistant",
+      "content": "操作很简单，点选低延迟直播就行。",
+      "chars": 16,
+      "latency_ms": 2892,
+      "tokens_in": 1546,
+      "tokens_out": 113,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 7,
+      "role": "user",
+      "content": "我再想想吧，今天实在是顾不过来。",
+      "chars": 16,
+      "latency_ms": 2415,
+      "tokens_in": 566,
+      "tokens_out": 102,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 8,
+      "role": "assistant",
+      "content": "明白。放心，系统自动处理，您不用操心。",
+      "chars": 19,
+      "latency_ms": 2584,
+      "tokens_in": 1569,
+      "tokens_out": 109,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 9,
+      "role": "user",
+      "content": "好吧，那就先试试看，不过要是真有问题我再找你们。",
+      "chars": 24,
+      "latency_ms": 3700,
+      "tokens_in": 591,
+      "tokens_out": 161,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 10,
+      "role": "assistant",
+      "content": "没问题，有问题随时找我。先挂啦，祝顺利！",
+      "chars": 20,
+      "latency_ms": 2486,
+      "tokens_in": 1600,
+      "tokens_out": 104,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 11,
+      "role": "user",
+      "content": "好的，那先这样吧。",
+      "chars": 9,
+      "latency_ms": 3215,
+      "tokens_in": 623,
+      "tokens_out": 140,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "sut_goodbye",
+  "seed": 920677,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T13:27:24.508411+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 您好，请问您是贵培训机构/校区的负责人吗\n用户: 嗯，我是。不过我今天事情太多了，有点忙不过来。\n客服: 就1分钟，保证简短。\n用户: 我再考虑下吧，今天安排确实排满了，怕做不完。\n客服: 理解您忙。之前我们后台已为您开了低延迟直\n用户: 我有点担心这个低延迟是不是真的稳定，万一影响上课就麻烦了。\n客服: 放心，后台一直在用这方案，效果很稳定。\n用户: 那我再考虑考虑，要不明天再说？我想先看看效果稳不稳。\n客服: 没问题，低延迟方案您其实一直用着，效果没\n用户: 好吧，不过我还是有点担心，先继续用着看看吧。我先挂啦。\n终止原因: user_end_call",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.76,
+      "passed": false,
+      "summary": "客服: 您好，请问您是贵培训机构/校区的负责人吗\n用户: 嗯，我是。不过我今天事情太多了，有点忙不过来。\n客服: 就1分钟，保证简短。\n用户: 我再考虑下吧，今天安排确实排满了，怕做不完。\n客服: 理解您忙。之前我们后台已为您开了低延迟直\n用户: 我有点担心这个低延迟是不是真的稳定，万一影响上课就麻烦了。\n客服: 放心，后台一直在用这方案，效果很稳定。\n用户: 那我再考虑考虑，要不明天再说？我想先看看效果稳不稳。\n客服: 没问题，低延迟方案您其实一直用着，效果没\n用户: 好吧，不过我还是有点担心，先继续用着看看吧。我先挂啦。\n终止原因: user_end_call"
+    }
+  ]
+}

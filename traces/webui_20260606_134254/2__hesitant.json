@@ -1,0 +1,121 @@
+{
+  "run_id": "webui_20260606_134254",
+  "case_id": "2__hesitant",
+  "instruction_id": "2",
+  "scenario_id": "hesitant",
+  "variables": {},
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "您好，上次说到发课系统的事，您问过教务老师了吗？",
+      "chars": 24,
+      "latency_ms": 1576,
+      "tokens_in": 1135,
+      "tokens_out": 78,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "嗯，问了教务老师，但还没具体反馈。我有点担心，不知道会不会影响明天的课，我再考虑下。",
+      "chars": 42,
+      "latency_ms": 2683,
+      "tokens_in": 501,
+      "tokens_out": 158,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "不影响明天的课，您放心。请问教务老师用哪个系统发课？",
+      "chars": 26,
+      "latency_ms": 2518,
+      "tokens_in": 1164,
+      "tokens_out": 122,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "用之前那个老系统。不过我今天事情多，怕临时换系统出问题，我再考虑下。",
+      "chars": 34,
+      "latency_ms": 2392,
+      "tokens_in": 528,
+      "tokens_out": 123,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 4,
+      "role": "assistant",
+      "content": "您先忙，换系统不影响现有课程。等教务老师有空我再打过去。",
+      "chars": 28,
+      "latency_ms": 1970,
+      "tokens_in": 1206,
+      "tokens_out": 110,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 5,
+      "role": "user",
+      "content": "好的，那我今天就先不换系统了。等您晚些时候再联系我吧，我再考虑下。",
+      "chars": 33,
+      "latency_ms": 2599,
+      "tokens_in": 572,
+      "tokens_out": 146,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 6,
+      "role": "assistant",
+      "content": "好的，那晚些再联系您。祝您课程顺利，招生满满！",
+      "chars": 23,
+      "latency_ms": 1795,
+      "tokens_in": 1251,
+      "tokens_out": 96,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 7,
+      "role": "user",
+      "content": "好的，谢谢您体谅。那我先忙今天的事了，等您消息。再见！",
+      "chars": 27,
+      "latency_ms": 2977,
+      "tokens_in": 616,
+      "tokens_out": 147,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "sut_goodbye",
+  "seed": 920677,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T05:44:18.241060+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 您好，请问您是贵培训机构/校区的负责人吗？\n用户: 是的，我是负责人。不过我现在有点忙，您有什么事吗？\n客服: 就1分钟，保证简短。您之前知道我们后台已为您走低延迟线路吗？\n用户: 我有点担心，这个线路调整会不会影响我们今天的课程安排？我再考虑下。\n客服: 不影响，现有课程不受任何调整。您放心。\n用户: 好的，那我再考虑下。今天下午的课会不会受影响啊？我有点担心。\n客服: 不影响今天下午的课，您放心。\n用户: 嗯好，那我暂时答应了。如果之后再有问题我再联系您。\n客服: 您是通过哪个系统发课的？\n用户: 啊，这个我不太清楚，系统那些事不是我在管。您放心，我会跟教务老师沟通的。那我先忙了？\n终止原因: user_end_call",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.8,
+      "passed": false,
+      "summary": "客服: 您好，请问您是贵培训机构/校区的负责人吗？\n用户: 是的，我是负责人。不过我现在有点忙，您有什么事吗？\n客服: 就1分钟，保证简短。您之前知道我们后台已为您走低延迟线路吗？\n用户: 我有点担心，这个线路调整会不会影响我们今天的课程安排？我再考虑下。\n客服: 不影响，现有课程不受任何调整。您放心。\n用户: 好的，那我再考虑下。今天下午的课会不会受影响啊？我有点担心。\n客服: 不影响今天下午的课，您放心。\n用户: 嗯好，那我暂时答应了。如果之后再有问题我再联系您。\n客服: 您是通过哪个系统发课的？\n用户: 啊，这个我不太清楚，系统那些事不是我在管。您放心，我会跟教务老师沟通的。那我先忙了？\n终止原因: user_end_call"
+    }
+  ]
+}

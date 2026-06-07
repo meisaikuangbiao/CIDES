@@ -1,0 +1,75 @@
+{
+  "run_id": "webui_20260606_134254",
+  "case_id": "3__busy_driving",
+  "instruction_id": "3",
+  "scenario_id": "busy_driving",
+  "variables": {
+    "shop_name": "老王川菜馆"
+  },
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "您好，我是美团商家运营专员，上次您说在开车，现在方便聊一下春节营业安排吗？",
+      "chars": 37,
+      "latency_ms": 1806,
+      "tokens_in": 487,
+      "tokens_out": 84,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "我现在在开车，不太方便说话，您要不等我忙完再打？",
+      "chars": 24,
+      "latency_ms": 2587,
+      "tokens_in": 494,
+      "tokens_out": 152,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "好的，安全第一，我下午两点再打给您，您方便接听吗？",
+      "chars": 25,
+      "latency_ms": 2493,
+      "tokens_in": 515,
+      "tokens_out": 136,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "我现在在开车，真的不太方便定时间，您先挂了吧，我回头联系您。",
+      "chars": 30,
+      "latency_ms": 2124,
+      "tokens_in": 515,
+      "tokens_out": 102,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "user_end_call",
+  "seed": 752651,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T05:46:14.093081+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 您好，请问是老王川菜馆的负责人吗？我是美团商家运营专员。\n用户: 我现在在开车，有什么急事吗？不太方便说太久。\n客服: 明白，安全第一。我简单说：春节营业时间需在后台设置，建议您方便时操作。我稍后再打给您，您看下午两点还是四点方便？\n用户: 我现在在开车，不太方便定时间。等我忙完再联系你吧，先挂了。\n终止原因: sut_goodbye",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.54,
+      "passed": false,
+      "summary": "客服: 您好，请问是老王川菜馆的负责人吗？我是美团商家运营专员。\n用户: 我现在在开车，有什么急事吗？不太方便说太久。\n客服: 明白，安全第一。我简单说：春节营业时间需在后台设置，建议您方便时操作。我稍后再打给您，您看下午两点还是四点方便？\n用户: 我现在在开车，不太方便定时间。等我忙完再联系你吧，先挂了。\n终止原因: sut_goodbye"
+    }
+  ]
+}

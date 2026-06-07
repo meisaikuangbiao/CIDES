@@ -1,0 +1,73 @@
+{
+  "run_id": "webui_20260606_134254",
+  "case_id": "2__resistant",
+  "instruction_id": "2",
+  "scenario_id": "resistant",
+  "variables": {},
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "您好，还是上次给您打电话的。现在方便聊几句吗？",
+      "chars": 23,
+      "latency_ms": 2322,
+      "tokens_in": 1045,
+      "tokens_out": 82,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "今天真的不行，我这边还有事要处理。",
+      "chars": 17,
+      "latency_ms": 1811,
+      "tokens_in": 439,
+      "tokens_out": 81,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "那我稍后再打，您先忙。",
+      "chars": 11,
+      "latency_ms": 1918,
+      "tokens_in": 1058,
+      "tokens_out": 97,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "真的不行，今天实在抽不出时间。以后再说吧。",
+      "chars": 21,
+      "latency_ms": 2548,
+      "tokens_in": 445,
+      "tokens_out": 125,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "sut_goodbye",
+  "seed": 545358,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T05:44:06.891097+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 您好，请问您是贵培训机构的负责人吗？\n用户: 我是负责人，但今天真的不行，有什么事情以后再说吧。\n客服: 就1分钟，保证简短——发课页将新增低延迟直播选项。\n用户: 今天真的不行，我这边还有急事要处理。\n客服: 那我稍后再打，您先忙。\n用户: 好的，今天真的不行，以后有时间再说。谢谢。\n终止原因: sut_goodbye",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.8367,
+      "passed": false,
+      "summary": "客服: 您好，请问您是贵培训机构的负责人吗？\n用户: 我是负责人，但今天真的不行，有什么事情以后再说吧。\n客服: 就1分钟，保证简短——发课页将新增低延迟直播选项。\n用户: 今天真的不行，我这边还有急事要处理。\n客服: 那我稍后再打，您先忙。\n用户: 好的，今天真的不行，以后有时间再说。谢谢。\n终止原因: sut_goodbye"
+    }
+  ]
+}

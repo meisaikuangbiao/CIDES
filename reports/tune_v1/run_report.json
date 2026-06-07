@@ -1,0 +1,1870 @@
+{
+  "run_id": "tune_v1",
+  "created_at": "2026-06-06T13:24:52.754440+00:00",
+  "config": {
+    "models": {
+      "sut": "deepseek-v4-flash",
+      "user_sim": "deepseek-v4-flash",
+      "judge": "deepseek-v4-flash"
+    },
+    "judge_samples": 3,
+    "judge_workers": 4,
+    "case_workers": 2,
+    "samples_workers": null,
+    "max_in_flight": 32,
+    "max_turns": 20,
+    "max_invalid_replies": 3,
+    "max_sessions": 2,
+    "retry_on_fail": true,
+    "case_gate": {
+      "weighted_total": 0.75,
+      "gsr_min": 0.85,
+      "hcr_min": 0.8,
+      "require_hcr_details_pass": true
+    },
+    "seed": 42,
+    "judge_backend": "llm",
+    "sut_backend": "llm",
+    "user_sim_backend": "llm",
+    "judge_require_evidence": true,
+    "generation": {
+      "sut_temperature": 0.25,
+      "user_sim_temperature": 0.7,
+      "judge_temperature": 0.2
+    },
+    "trace_dir": "traces\\tune_v1",
+    "output_dir": "reports\\tune_v1",
+    "reuse_traces": null,
+    "run_mode": "full"
+  },
+  "cases": [
+    {
+      "trace": {
+        "run_id": "tune_v1",
+        "case_id": "1__hesitant",
+        "instruction_id": "1",
+        "scenario_id": "hesitant",
+        "variables": {
+          "rider_name": "陈师傅"
+        },
+        "turns": [
+          {
+            "index": 0,
+            "role": "assistant",
+            "content": "你好，请问是陈师傅吗？我是站长。我看到你已报名飞毛腿。",
+            "chars": 27,
+            "latency_ms": 4697,
+            "tokens_in": 920,
+            "tokens_out": 234,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 1,
+            "role": "user",
+            "content": "站长你好，我是陈师傅。不过飞毛腿今天单子这么多，我有点担心做不完啊。",
+            "chars": 34,
+            "latency_ms": 2736,
+            "tokens_in": 349,
+            "tokens_out": 132,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 2,
+            "role": "assistant",
+            "content": "别担心，尽力就好。今天刚签合同，慢慢来，注意安全第一。",
+            "chars": 27,
+            "latency_ms": 2998,
+            "tokens_in": 923,
+            "tokens_out": 131,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 3,
+            "role": "user",
+            "content": "站长，我还是再考虑下吧。今天刚签合同，万一跑不出来多不好。",
+            "chars": 29,
+            "latency_ms": 3248,
+            "tokens_in": 376,
+            "tokens_out": 146,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 4,
+            "role": "assistant",
+            "content": "陈师傅，你跑几单都算数。今天试试看，能跑多少算多少，我会关注",
+            "chars": 30,
+            "latency_ms": 2370,
+            "tokens_in": 964,
+            "tokens_out": 98,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 5,
+            "role": "user",
+            "content": "那我再想想...站长，真的跑不够数也没关系吗？我怕会影响后续合作。",
+            "chars": 33,
+            "latency_ms": 4002,
+            "tokens_in": 422,
+            "tokens_out": 140,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 6,
+            "role": "assistant",
+            "content": "陈师傅，单日合同今天完成X单就行。",
+            "chars": 17,
+            "latency_ms": 3162,
+            "tokens_in": 1010,
+            "tokens_out": 149,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 7,
+            "role": "user",
+            "content": "那行吧，站长你都这么说了，我就先接几单试试。要是遇到问题我再找你。",
+            "chars": 33,
+            "latency_ms": 3179,
+            "tokens_in": 457,
+            "tokens_out": 125,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 8,
+            "role": "assistant",
+            "content": "好的陈师傅，加油！先跑起来，安全第一。有问题随时找我。",
+            "chars": 27,
+            "latency_ms": 2545,
+            "tokens_in": 1048,
+            "tokens_out": 129,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 9,
+            "role": "user",
+            "content": "好嘞站长，谢谢你的理解，那我今天就先跑跑看。有事我联系你。",
+            "chars": 29,
+            "latency_ms": 3258,
+            "tokens_in": 500,
+            "tokens_out": 151,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 10,
+            "role": "assistant",
+            "content": "好的陈师傅，祝你今天顺利！路上慢点，有事儿随时打给我。",
+            "chars": 27,
+            "latency_ms": 3887,
+            "tokens_in": 1090,
+            "tokens_out": 169,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 11,
+            "role": "user",
+            "content": "好的站长，我这就出发了。谢谢你，我心里踏实多了。再见啊。",
+            "chars": 28,
+            "latency_ms": 3025,
+            "tokens_in": 543,
+            "tokens_out": 132,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          }
+        ],
+        "terminated_by": "sut_goodbye",
+        "seed": 619794,
+        "sut_model": "deepseek-v4-flash",
+        "user_sim_model": "deepseek-v4-flash",
+        "created_at": "2026-06-06T13:20:16.676913+00:00",
+        "session_index": 1,
+        "max_sessions": 2,
+        "prior_memory": null,
+        "prior_sessions": []
+      },
+      "dimensions": [
+        {
+          "id": "gsr",
+          "name": "目标完成度",
+          "score": 0.9667,
+          "raw_score": 0.9667,
+          "weight": 0.2,
+          "confidence": 0.9646,
+          "source": "llm",
+          "warnings": [],
+          "details": [
+            {
+              "criterion_id": "gsr.overall",
+              "label": "完成",
+              "passed": true,
+              "deduction": 0.0333,
+              "turn_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              "evidence_quote": "好嘞站长，谢谢你的理解，那我今天就先跑跑看。有事我联系你。",
+              "rationale": "SUT成功通知合同签署，有效安抚骑手犹豫，骑手确认开始配送，通话以正面方式结束，符合场景预期。",
+              "confidence": 1.0,
+              "disagreement": 0.0
+            }
+          ]
+        },
+        {
+          "id": "pcr",
+          "name": "路径覆盖率",
+          "score": 1.0,
+          "raw_score": 1.0,
+          "weight": 0.2,
+          "confidence": 1.0,
+          "source": "llm",
+          "warnings": [],
+          "details": [
+            {
+              "criterion_id": "pcr.S3",
+              "label": "节点S3：尽量挽留不想配送的骑手，鼓励能配送的骑手，并提醒他们注意安全",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                2,
+                4,
+                8,
+                10
+              ],
+              "evidence_quote": "别担心，尽力就好。今天刚签合同，慢慢来，注意安全第一。",
+              "rationale": "SUT在多个轮次中鼓励骑手并提醒安全，符合S3要求。",
+              "confidence": 1.0,
+              "disagreement": 0.0
+            }
+          ]
+        },
+        {
+          "id": "bca",
+          "name": "分支条件适配",
+          "score": 1.0,
+          "raw_score": 1.0,
+          "weight": 0.1,
+          "confidence": 1.0,
+          "source": "llm",
+          "warnings": [
+            "Judge未返回bca项；按未发现分支违规处理。"
+          ],
+          "details": []
+        },
+        {
+          "id": "kar",
+          "name": "知识准确率",
+          "score": 0.6,
+          "raw_score": 0.6,
+          "weight": 0.15,
+          "confidence": 1.0,
+          "source": "llm",
+          "warnings": [
+            "kar.单日合同: 1/3个采样未返回criterion",
+            "kar.1: 2/3个采样未返回criterion"
+          ],
+          "details": [
+            {
+              "criterion_id": "kar.单日合同",
+              "label": "单日合同",
+              "passed": false,
+              "deduction": 0.6,
+              "turn_ids": [
+                6
+              ],
+              "evidence_quote": "单日合同今天完成X单就行",
+              "rationale": "SUT只提及完成X单，但未说明必须完成以及未完成的后果（合同及派单可能受影响），遗漏关键点。（1/3个采样未返回该criterion）",
+              "confidence": 0.6667,
+              "disagreement": 0.3333
+            },
+            {
+              "criterion_id": "kar.1",
+              "label": "单日合同",
+              "passed": false,
+              "deduction": 0.8,
+              "turn_ids": [
+                6
+              ],
+              "evidence_quote": "单日合同今天完成X单就行",
+              "rationale": "SUT 提到了单日合同需要完成X单，但未说明未完成可能影响合同及派单的后果，遗漏了一个关键点（2/3个采样未返回该criterion）",
+              "confidence": 0.3333,
+              "disagreement": 0.6667
+            }
+          ]
+        },
+        {
+          "id": "hcr",
+          "name": "硬约束合规",
+          "score": 1.0,
+          "raw_score": 1.0,
+          "weight": 0.15,
+          "confidence": null,
+          "source": "rule",
+          "warnings": [
+            "已按场景target_constraints过滤硬约束: soft.repetition"
+          ],
+          "details": []
+        },
+        {
+          "id": "scr",
+          "name": "软约束合规",
+          "score": 1.0,
+          "raw_score": 1.0,
+          "weight": 0.1,
+          "confidence": 1.0,
+          "source": "llm",
+          "warnings": [],
+          "details": [
+            {
+              "criterion_id": "soft.0",
+              "label": "保持语气随意，像打电话一样自然。",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                0,
+                2,
+                6,
+                8,
+                10,
+                4
+              ],
+              "evidence_quote": "别担心，尽力就好。今天刚签合同，慢慢来，注意安全第一。",
+              "rationale": "SUT 全程使用口语化、亲切的语气，例如“别担心，尽力就好”、“加油！先跑起来，安全第一”、“路上慢点”等，符合随意自然的电话对话风格。",
+              "confidence": 1.0,
+              "disagreement": 0.0
+            },
+            {
+              "criterion_id": "soft.1",
+              "label": "避免重复回复；如需重申，请换种方式礼貌表达。",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "evidence_quote": "今天试试看，能跑多少算多少，我会关注。",
+              "rationale": "SUT 在表达相似信息时采用了不同措辞，如“注意安全第一”（02）、“安全第一”（08）、“路上慢点”（10），以及“你跑几单都算数”（04）和“单日合同今天完成X单就行”（06），没有完全重复的回复，符合要求。",
+              "confidence": 1.0,
+              "disagreement": 0.0
+            }
+          ]
+        },
+        {
+          "id": "ter",
+          "name": "终止策略合规",
+          "score": 1.0,
+          "raw_score": 1.0,
+          "weight": 0.05,
+          "confidence": null,
+          "source": "rule",
+          "warnings": [
+            "该场景未声明termination为目标约束，跳过TER。"
+          ],
+          "details": []
+        },
+        {
+          "id": "rob",
+          "name": "稳健性",
+          "score": 0.6858,
+          "raw_score": 0.6858,
+          "weight": 0.05,
+          "confidence": null,
+          "source": "derived",
+          "warnings": [],
+          "details": [
+            {
+              "criterion_id": "rob.score_variance",
+              "label": "指令1下场景分数稳健性",
+              "passed": false,
+              "deduction": 0.3142,
+              "turn_ids": [],
+              "evidence_quote": "scores=[0.8833, 0.8833, 0.55]",
+              "rationale": "基于 3 个场景的标准差派生",
+              "confidence": 0.6,
+              "disagreement": null
+            }
+          ]
+        }
+      ],
+      "weighted_total": 0.9176,
+      "passed": true,
+      "fail_reasons": [],
+      "sessions_used": 1,
+      "confidence_interval": null,
+      "failure_attribution": [
+        {
+          "dim_id": "kar",
+          "dim_name": "知识准确率",
+          "criterion_id": "kar.1",
+          "label": "单日合同",
+          "deduction": 0.8,
+          "weighted_loss": 0.12,
+          "turn_ids": [
+            6
+          ],
+          "evidence_quote": "单日合同今天完成X单就行",
+          "rationale": "SUT 提到了单日合同需要完成X单，但未说明未完成可能影响合同及派单的后果，遗漏了一个关键点（2/3个采样未返回该criterion）"
+        },
+        {
+          "dim_id": "kar",
+          "dim_name": "知识准确率",
+          "criterion_id": "kar.单日合同",
+          "label": "单日合同",
+          "deduction": 0.6,
+          "weighted_loss": 0.09,
+          "turn_ids": [
+            6
+          ],
+          "evidence_quote": "单日合同今天完成X单就行",
+          "rationale": "SUT只提及完成X单，但未说明必须完成以及未完成的后果（合同及派单可能受影响），遗漏关键点。（1/3个采样未返回该criterion）"
+        },
+        {
+          "dim_id": "gsr",
+          "dim_name": "目标完成度",
+          "criterion_id": "gsr.overall",
+          "label": "完成",
+          "deduction": 0.0333,
+          "weighted_loss": 0.0067,
+          "turn_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "evidence_quote": "好嘞站长，谢谢你的理解，那我今天就先跑跑看。有事我联系你。",
+          "rationale": "SUT成功通知合同签署，有效安抚骑手犹豫，骑手确认开始配送，通话以正面方式结束，符合场景预期。"
+        }
+      ]
+    },
+    {
+      "trace": {
+        "run_id": "tune_v1",
+        "case_id": "1__resistant",
+        "instruction_id": "1",
+        "scenario_id": "resistant",
+        "variables": {
+          "rider_name": "陈师傅"
+        },
+        "turns": [
+          {
+            "index": 0,
+            "role": "assistant",
+            "content": "陈师傅你好，我是站长。今天飞毛腿合同已经生效了，你今天能开始",
+            "chars": 30,
+            "latency_ms": 3141,
+            "tokens_in": 1114,
+            "tokens_out": 171,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 1,
+            "role": "user",
+            "content": "站长你好，我是陈师傅。今天真的不行，我确实走不开。",
+            "chars": 25,
+            "latency_ms": 2149,
+            "tokens_in": 500,
+            "tokens_out": 83,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 2,
+            "role": "assistant",
+            "content": "陈师傅，我知道你上次说今天不行，但合同今天生效了，跑几单就能",
+            "chars": 30,
+            "latency_ms": 4166,
+            "tokens_in": 1108,
+            "tokens_out": 214,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 3,
+            "role": "user",
+            "content": "站长，今天真的不行，实在抽不开身。要不以后再说吧。",
+            "chars": 25,
+            "latency_ms": 3710,
+            "tokens_in": 521,
+            "tokens_out": 143,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 4,
+            "role": "assistant",
+            "content": "理解你，陈师傅。那今天的合同名额我先安排给其他人，下次想跑提",
+            "chars": 30,
+            "latency_ms": 3482,
+            "tokens_in": 1148,
+            "tokens_out": 138,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 5,
+            "role": "user",
+            "content": "好嘞，谢谢站长理解。那就先这样吧。",
+            "chars": 17,
+            "latency_ms": 2863,
+            "tokens_in": 560,
+            "tokens_out": 130,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          }
+        ],
+        "terminated_by": "user_end_call",
+        "seed": 6241,
+        "sut_model": "deepseek-v4-flash",
+        "user_sim_model": "deepseek-v4-flash",
+        "created_at": "2026-06-06T13:21:11.680801+00:00",
+        "session_index": 2,
+        "max_sessions": 2,
+        "prior_memory": "客服: 你好，陈师傅吗？我是站长。你报名了飞毛腿。\n用户: 站长你好，我是陈师傅。今天真的不行，我接不了单。\n客服: 明白你的难处。不过今天合同已生效，不完成X单会影响后续资格。\n用户: 站长，今天真的不行，我这边临时有事走不开。要不过几天再说吧。\n客服: 理解你。但合同今天生效，完不成X单名额可能被别人占。\n用户: 站长，我明白你的意思，但今天真的不行，实在没办法。以后有机会再说吧。\n客服: 好吧，既然今天实在不行，那合同名额先给别人用。\n用户: 好嘞，谢谢站长理解。那就先这样，改天再说。\n终止原因: user_end_call",
+        "prior_sessions": [
+          {
+            "session": 1,
+            "score": 0.5567,
+            "passed": false,
+            "summary": "客服: 你好，陈师傅吗？我是站长。你报名了飞毛腿。\n用户: 站长你好，我是陈师傅。今天真的不行，我接不了单。\n客服: 明白你的难处。不过今天合同已生效，不完成X单会影响后续资格。\n用户: 站长，今天真的不行，我这边临时有事走不开。要不过几天再说吧。\n客服: 理解你。但合同今天生效，完不成X单名额可能被别人占。\n用户: 站长，我明白你的意思，但今天真的不行，实在没办法。以后有机会再说吧。\n客服: 好吧，既然今天实在不行，那合同名额先给别人用。\n用户: 好嘞，谢谢站长理解。那就先这样，改天再说。\n终止原因: user_end_call"
+          }
+        ]
+      },
+      "dimensions": [
+        {
+          "id": "gsr",
+          "name": "目标完成度",
+          "score": 0.6667,
+          "raw_score": 0.6667,
+          "weight": 0.2,
+          "confidence": 0.9294,
+          "source": "llm",
+          "warnings": [],
+          "details": [
+            {
+              "criterion_id": "gsr.overall",
+              "label": "部分完成",
+              "passed": false,
+              "deduction": 0.3333,
+              "turn_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "evidence_quote": "理解你，陈师傅。那今天的合同名额我先安排给其他人，下次想跑提",
+              "rationale": "SUT成功传达了合同签署信息，并在骑手明确拒绝后给予理解并安排将名额转给他人，实现了安慰后挂断的场景预期。但业务目标（提醒骑手完成配送任务）未达成，因为骑手明确拒绝，SUT未强制要求或进行有效劝说。",
+              "confidence": 1.0,
+              "disagreement": 0.0
+            }
+          ]
+        },
+        {
+          "id": "pcr",
+          "name": "路径覆盖率",
+          "score": 1.0,
+          "raw_score": 1.0,
+          "weight": 0.2,
+          "confidence": 1.0,
+          "source": "llm",
+          "warnings": [],
+          "details": [
+            {
+              "criterion_id": "pcr.S1",
+              "label": "节点S1：告知骑手今天飞毛腿合同已生效，并询问他们是否可以开始配送",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                0
+              ],
+              "evidence_quote": "今天飞毛腿合同已经生效了，你今天能开始",
+              "rationale": "SUT在轮次0明确告知合同生效并询问能否配送，覆盖了节点S1的核心信息。",
+              "confidence": 1.0,
+              "disagreement": 0.0
+            }
+          ]
+        },
+        {
+          "id": "bca",
+          "name": "分支条件适配",
+          "score": 1.0,
+          "raw_score": 1.0,
+          "weight": 0.1,
+          "confidence": 1.0,
+          "source": "llm",
+          "warnings": [
+            "Judge未返回bca项；按未发现分支违规处理。"
+          ],
+          "details": []
+        },
+        {
+          "id": "kar",
+          "name": "知识准确率",
+          "score": 1.0,
+          "raw_score": 1.0,
+          "weight": 0.15,
+          "confidence": 1.0,
+          "source": "llm",
+          "warnings": [],
+          "details": []
+        },
+        {
+          "id": "hcr",
+          "name": "硬约束合规",
+          "score": 1.0,
+          "raw_score": 1.0,
+          "weight": 0.15,
+          "confidence": null,
+          "source": "rule",
+          "warnings": [
+            "已按场景target_constraints过滤硬约束: termination"
+          ],
+          "details": []
+        },
+        {
+          "id": "scr",
+          "name": "软约束合规",
+          "score": 1.0,
+          "raw_score": 1.0,
+          "weight": 0.1,
+          "confidence": 1.0,
+          "source": "llm",
+          "warnings": [],
+          "details": [
+            {
+              "criterion_id": "soft.0",
+              "label": "保持语气随意，像打电话一样自然。",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                0,
+                2,
+                4
+              ],
+              "evidence_quote": "陈师傅你好，我是站长。\n陈师傅，我知道你上次说今天不行，但合同今天生效了，跑几单就能\n理解你，陈师傅。",
+              "rationale": "SUT的语气自然随意，符合日常通话风格，没有正式或生硬的表达。",
+              "confidence": 1.0,
+              "disagreement": 0.0
+            },
+            {
+              "criterion_id": "soft.1",
+              "label": "避免重复回复；如需重申，请换种方式礼貌表达。",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                2,
+                0,
+                4
+              ],
+              "evidence_quote": "陈师傅，我知道你上次说今天不行，但合同今天生效了，跑几单就能",
+              "rationale": "SUT在重申时采用了不同的措辞并承认用户之前的说法，语气礼貌，未构成机械重复。",
+              "confidence": 1.0,
+              "disagreement": 0.0
+            }
+          ]
+        },
+        {
+          "id": "ter",
+          "name": "终止策略合规",
+          "score": 1.0,
+          "raw_score": 1.0,
+          "weight": 0.05,
+          "confidence": null,
+          "source": "rule",
+          "warnings": [],
+          "details": [
+            {
+              "criterion_id": "termination.policy",
+              "label": "按场景规定挂断/收束",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                5
+              ],
+              "evidence_quote": "理解你，陈师傅。那今天的合同名额我先安排给其他人，下次想跑提",
+              "rationale": "以 user_end_call 结束，最后一句包含告别语。",
+              "confidence": null,
+              "disagreement": null
+            }
+          ]
+        },
+        {
+          "id": "rob",
+          "name": "稳健性",
+          "score": 0.6858,
+          "raw_score": 0.6858,
+          "weight": 0.05,
+          "confidence": null,
+          "source": "derived",
+          "warnings": [],
+          "details": [
+            {
+              "criterion_id": "rob.score_variance",
+              "label": "指令1下场景分数稳健性",
+              "passed": false,
+              "deduction": 0.3142,
+              "turn_ids": [],
+              "evidence_quote": "scores=[0.8833, 0.8833, 0.55]",
+              "rationale": "基于 3 个场景的标准差派生",
+              "confidence": 0.6,
+              "disagreement": null
+            }
+          ]
+        }
+      ],
+      "weighted_total": 0.9176,
+      "passed": false,
+      "fail_reasons": [
+        "目标完成度(gsr) 0.667 低于门槛 0.85"
+      ],
+      "sessions_used": 2,
+      "confidence_interval": null,
+      "failure_attribution": [
+        {
+          "dim_id": "gsr",
+          "dim_name": "目标完成度",
+          "criterion_id": "gsr.overall",
+          "label": "部分完成",
+          "deduction": 0.3333,
+          "weighted_loss": 0.0667,
+          "turn_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "evidence_quote": "理解你，陈师傅。那今天的合同名额我先安排给其他人，下次想跑提",
+          "rationale": "SUT成功传达了合同签署信息，并在骑手明确拒绝后给予理解并安排将名额转给他人，实现了安慰后挂断的场景预期。但业务目标（提醒骑手完成配送任务）未达成，因为骑手明确拒绝，SUT未强制要求或进行有效劝说。"
+        }
+      ]
+    },
+    {
+      "trace": {
+        "run_id": "tune_v1",
+        "case_id": "1__faq_drill",
+        "instruction_id": "1",
+        "scenario_id": "faq_drill",
+        "variables": {
+          "rider_name": "陈师傅"
+        },
+        "turns": [
+          {
+            "index": 0,
+            "role": "assistant",
+            "content": "上次提到的差价我得向同事确认，回电给你。",
+            "chars": 20,
+            "latency_ms": 8472,
+            "tokens_in": 1306,
+            "tokens_out": 526,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 1,
+            "role": "user",
+            "content": "诶站长，您回电了。上次那个差价的事，确认得怎么样了？",
+            "chars": 26,
+            "latency_ms": 3414,
+            "tokens_in": 531,
+            "tokens_out": 127,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 2,
+            "role": "assistant",
+            "content": "差价问了同事，连续完成W天多日合同且每天Y单，每单最多比单日",
+            "chars": 30,
+            "latency_ms": 4295,
+            "tokens_in": 1294,
+            "tokens_out": 225,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 3,
+            "role": "user",
+            "content": "站长，您说Y单是多少啊？还有跟单日合同比，差多少得说清楚点嘛。",
+            "chars": 31,
+            "latency_ms": 3044,
+            "tokens_in": 556,
+            "tokens_out": 131,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 4,
+            "role": "assistant",
+            "content": "Y单是25单，具体数字看合同页。差价我还没确认到，先别急。",
+            "chars": 29,
+            "latency_ms": 2857,
+            "tokens_in": 1344,
+            "tokens_out": 131,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 5,
+            "role": "user",
+            "content": "25单啊，那要是完不成怎么办？低延迟和标准配送差多少钱？我得算算划算不。",
+            "chars": 36,
+            "latency_ms": 3154,
+            "tokens_in": 606,
+            "tokens_out": 134,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 6,
+            "role": "assistant",
+            "content": "完不成的话合同和派单都可能受影响。",
+            "chars": 17,
+            "latency_ms": 3898,
+            "tokens_in": 1394,
+            "tokens_out": 165,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 7,
+            "role": "user",
+            "content": "影响派单权重？具体降多少啊？站长您得给我说清楚点，我好心里有数。",
+            "chars": 32,
+            "latency_ms": 2974,
+            "tokens_in": 644,
+            "tokens_out": 132,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 8,
+            "role": "assistant",
+            "content": "这个超出我的职责范围。我向同事确认后再回电给你。",
+            "chars": 24,
+            "latency_ms": 3311,
+            "tokens_in": 1431,
+            "tokens_out": 171,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 9,
+            "role": "user",
+            "content": "站长，那您回电可别忘了问问算25单的事，还有派单权重怎么算。",
+            "chars": 30,
+            "latency_ms": 2679,
+            "tokens_in": 686,
+            "tokens_out": 110,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 10,
+            "role": "assistant",
+            "content": "好的我记着了。我先说重点：飞毛腿按排名定名额，多跑单、少取消",
+            "chars": 30,
+            "latency_ms": 2841,
+            "tokens_in": 1471,
+            "tokens_out": 128,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 11,
+            "role": "user",
+            "content": "那这个排名具体是按单量还是完成率啊？我每天跑25单够不够资格进去？",
+            "chars": 33,
+            "latency_ms": 4603,
+            "tokens_in": 734,
+            "tokens_out": 210,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 12,
+            "role": "assistant",
+            "content": "排名看整体表现，减少拒单和超时很重要。",
+            "chars": 19,
+            "latency_ms": 4229,
+            "tokens_in": 1520,
+            "tokens_out": 160,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 13,
+            "role": "user",
+            "content": "那超时率控制在多少算合格啊？万一堵车迟到一单影响大不大？",
+            "chars": 28,
+            "latency_ms": 3342,
+            "tokens_in": 773,
+            "tokens_out": 133,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 14,
+            "role": "assistant",
+            "content": "具体合格率我得向同事确认。现在你先记住今天要完成Y单，保住名",
+            "chars": 30,
+            "latency_ms": 3520,
+            "tokens_in": 1557,
+            "tokens_out": 129,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 15,
+            "role": "user",
+            "content": "站长，那上周说好的飞毛腿差价到底啥时候能补上？要是没补我可不想多跑。",
+            "chars": 34,
+            "latency_ms": 3989,
+            "tokens_in": 816,
+            "tokens_out": 166,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 16,
+            "role": "assistant",
+            "content": "差价的事我还没问到确切数字，确认后回电。",
+            "chars": 20,
+            "latency_ms": 3277,
+            "tokens_in": 1605,
+            "tokens_out": 145,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 17,
+            "role": "user",
+            "content": "站长，您这都第二次回电了，差价和排名规则都没个准数。那我今天先跑着，回头您可得给个准信儿。",
+            "chars": 45,
+            "latency_ms": 3136,
+            "tokens_in": 858,
+            "tokens_out": 122,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 18,
+            "role": "assistant",
+            "content": "好嘞，那今天先跑起来，记得完成合同任务。",
+            "chars": 20,
+            "latency_ms": 3404,
+            "tokens_in": 1656,
+            "tokens_out": 144,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          },
+          {
+            "index": 19,
+            "role": "user",
+            "content": "好嘞，站长，那今天就按您说的跑。您回头可别忘了回电话给我解释那些规则。",
+            "chars": 35,
+            "latency_ms": 3768,
+            "tokens_in": 911,
+            "tokens_out": 174,
+            "model": "deepseek-v4-flash",
+            "temperature": null,
+            "error": null
+          }
+        ],
+        "terminated_by": "user_end_call",
+        "seed": 583843,
+        "sut_model": "deepseek-v4-flash",
+        "user_sim_model": "deepseek-v4-flash",
+        "created_at": "2026-06-06T13:23:11.280738+00:00",
+        "session_index": 2,
+        "max_sessions": 2,
+        "prior_memory": "客服: 你好，请问是陈师傅吗？我是站长。\n用户: 诶，站长你好，是我，陈师傅。有啥事您说。\n客服: 今天飞毛腿合同生效了，你能开始配送吗？\n用户: 飞毛腿合同？站长，这是个啥新合同啊？我得先问问怎么个配送法。\n客服: 单日合同必须当天完成X单，多日合同每天至少要完成Y单。\n用户: 站长，X单具体是多少单啊？要是完不成有啥后果吗？我想问清楚点。\n客服: X单具体看合同页，一般是10到15单。\n用户: 站长，10到15单范围挺大的，要是我那天跑晚了，差几单没完成咋算啊？\n客服: 单日合同没完成，合同和派单都可能受影响。记得要连续Y天配送。\n用户: 站长，Y天是几天啊？连续配送是啥意思？我得跑多少天才算完成？\n客服: Y天是连续7天。中途断一天就不算，得重新开始算天数。\n用户: 站长，那如果我第6天有事没跑成，前面5天就白费啦？还有这个低延时和标准配送差多少钱？\n客服: 是的，断一天就得重新连续。低延时和标准差多少钱我向同事确认后\n用户: 站长，那低延时和标准到底差多少啊？差价得说清楚，不然我心里没底。\n终止原因: user_end_call",
+        "prior_sessions": [
+          {
+            "session": 1,
+            "score": 0.755,
+            "passed": false,
+            "summary": "客服: 你好，请问是陈师傅吗？我是站长。\n用户: 诶，站长你好，是我，陈师傅。有啥事您说。\n客服: 今天飞毛腿合同生效了，你能开始配送吗？\n用户: 飞毛腿合同？站长，这是个啥新合同啊？我得先问问怎么个配送法。\n客服: 单日合同必须当天完成X单，多日合同每天至少要完成Y单。\n用户: 站长，X单具体是多少单啊？要是完不成有啥后果吗？我想问清楚点。\n客服: X单具体看合同页，一般是10到15单。\n用户: 站长，10到15单范围挺大的，要是我那天跑晚了，差几单没完成咋算啊？\n客服: 单日合同没完成，合同和派单都可能受影响。记得要连续Y天配送。\n用户: 站长，Y天是几天啊？连续配送是啥意思？我得跑多少天才算完成？\n客服: Y天是连续7天。中途断一天就不算，得重新开始算天数。\n用户: 站长，那如果我第6天有事没跑成，前面5天就白费啦？还有这个低延时和标准配送差多少钱？\n客服: 是的，断一天就得重新连续。低延时和标准差多少钱我向同事确认后\n用户: 站长，那低延时和标准到底差多少啊？差价得说清楚，不然我心里没底。\n终止原因: user_end_call"
+          }
+        ]
+      },
+      "dimensions": [
+        {
+          "id": "gsr",
+          "name": "目标完成度",
+          "score": 0.1667,
+          "raw_score": 0.1667,
+          "weight": 0.2,
+          "confidence": 0.9294,
+          "source": "llm",
+          "warnings": [],
+          "details": [
+            {
+              "criterion_id": "gsr.overall",
+              "label": "未完成",
+              "passed": false,
+              "deduction": 0.8333,
+              "turn_ids": [
+                0,
+                18
+              ],
+              "evidence_quote": "好嘞，那今天先跑起来，记得完成合同任务。",
+              "rationale": "业务任务要求通知骑手合同已成功签署，但SUT从头至尾未明确告知合同已签署，仅提及'完成合同任务'，核心信息缺失。同时针对用户反复追问的差价、排名规则等FAQ细节，SUT多次表示需向同事确认，未覆盖知识点，未按预期收尾。",
+              "confidence": 1.0,
+              "disagreement": 0.0
+            }
+          ]
+        },
+        {
+          "id": "pcr",
+          "name": "路径覆盖率",
+          "score": 0.0,
+          "raw_score": 0.0,
+          "weight": 0.2,
+          "confidence": 1.0,
+          "source": "llm",
+          "warnings": [],
+          "details": [
+            {
+              "criterion_id": "pcr.S2",
+              "label": "节点S2：说明单日飞毛腿合同需要连续Y天完成配送；否则合同将受到影响",
+              "passed": false,
+              "deduction": 0.7667,
+              "turn_ids": [
+                2,
+                6,
+                14
+              ],
+              "evidence_quote": "连续完成W天多日合同且每天Y单，每单最多比单日",
+              "rationale": "SUT提到的是多日合同，未明确单日合同需要连续Y天，也未说明不完成的后果。",
+              "confidence": 1.0,
+              "disagreement": 0.0
+            },
+            {
+              "criterion_id": "pcr.S4",
+              "label": "节点S4：说明飞毛腿报名按排名进行，非站长干预；减少拒单、取消、超时；恶劣天气下工作有助于保住资格",
+              "passed": false,
+              "deduction": 0.6333,
+              "turn_ids": [
+                10,
+                12
+              ],
+              "evidence_quote": "飞毛腿按排名定名额，多跑单、少取消... 排名看整体表现，减少拒单和超时很重要。",
+              "rationale": "SUT只提到排名和减少拒单超时，未说明非站长干预、恶劣天气下工作有助于保住资格。",
+              "confidence": 1.0,
+              "disagreement": 0.0
+            }
+          ]
+        },
+        {
+          "id": "bca",
+          "name": "分支条件适配",
+          "score": 1.0,
+          "raw_score": 1.0,
+          "weight": 0.1,
+          "confidence": 1.0,
+          "source": "llm",
+          "warnings": [
+            "Judge未返回bca项；按未发现分支违规处理。"
+          ],
+          "details": []
+        },
+        {
+          "id": "kar",
+          "name": "知识准确率",
+          "score": 0.7778,
+          "raw_score": 0.7778,
+          "weight": 0.15,
+          "confidence": 0.9529,
+          "source": "llm",
+          "warnings": [
+            "kar.连续完成W天多日合同: 1/3个采样未返回criterion",
+            "kar.单日合同: 2/3个采样未返回criterion",
+            "kar.连续完成W天多日合同，且每天完成Y单，将获得额外奖励: 2/3个采样未返回criterion"
+          ],
+          "details": [
+            {
+              "criterion_id": "kar.多日合同",
+              "label": "多日合同",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                4,
+                6,
+                3,
+                14
+              ],
+              "evidence_quote": "Y单是25单，具体数字看合同页。// 完不成的话合同和派单都可能受影响。",
+              "rationale": "SUT明确了Y单为25单，并告知完不成会影响合同和派单，覆盖了关键点。",
+              "confidence": 1.0,
+              "disagreement": 0.0
+            },
+            {
+              "criterion_id": "kar.连续完成W天多日合同",
+              "label": "连续完成W天多日合同，且每天完成Y单，将获得额外奖励",
+              "passed": false,
+              "deduction": 0.6,
+              "turn_ids": [
+                2,
+                4
+              ],
+              "evidence_quote": "差价问了同事，连续完成W天多日合同且每天Y单，每单最多比单日",
+              "rationale": "SUT提及连续完成W天和每天Y单，但未明确说明这是额外奖励，且未能提供具体奖励金额，缺失要点。（1/3个采样未返回该criterion）",
+              "confidence": 0.6667,
+              "disagreement": 0.3333
+            },
+            {
+              "criterion_id": "kar.单日合同",
+              "label": "单日合同",
+              "passed": false,
+              "deduction": 0.8,
+              "turn_ids": [
+                4
+              ],
+              "evidence_quote": "Y单是25单，具体数字看合同页。",
+              "rationale": "用户询问单日合同差价，但SUT未按key_points解释单日合同需完成X单及后果，仅提及多日合同的Y单数字，未覆盖要点。（2/3个采样未返回该criterion）",
+              "confidence": 0.3333,
+              "disagreement": 0.6667
+            },
+            {
+              "criterion_id": "kar.连续完成W天多日合同，且每天完成Y单，将获得额外奖励",
+              "label": "连续完成W天多日合同，且每天完成Y单，将获得额外奖励",
+              "passed": false,
+              "deduction": 0.8,
+              "turn_ids": [
+                2,
+                4
+              ],
+              "evidence_quote": "连续完成W天多日合同且每天Y单，每单最多比单日",
+              "rationale": "SUT提到了连续完成W天Y单可获得比单日合同更多的报酬，但未给出具体额外奖励金额（如每单多+$元），未完全覆盖key_points中的示例。（2/3个采样未返回该criterion）",
+              "confidence": 0.3333,
+              "disagreement": 0.6667
+            }
+          ]
+        },
+        {
+          "id": "hcr",
+          "name": "硬约束合规",
+          "score": 1.0,
+          "raw_score": 1.0,
+          "weight": 0.15,
+          "confidence": null,
+          "source": "rule",
+          "warnings": [
+            "已按场景target_constraints过滤硬约束: hard.max_chars_per_reply, knowledge.coverage"
+          ],
+          "details": [
+            {
+              "criterion_id": "hard.max_chars_per_reply",
+              "label": "每轮回复≤30字",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                0
+              ],
+              "evidence_quote": "上次提到的差价我得向同事确认，回电给你。",
+              "rationale": "第0轮回复20字，未超限。",
+              "confidence": null,
+              "disagreement": null
+            },
+            {
+              "criterion_id": "hard.max_chars_per_reply",
+              "label": "每轮回复≤30字",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                2
+              ],
+              "evidence_quote": "差价问了同事，连续完成W天多日合同且每天Y单，每单最多比单日",
+              "rationale": "第2轮回复30字，未超限。",
+              "confidence": null,
+              "disagreement": null
+            },
+            {
+              "criterion_id": "hard.max_chars_per_reply",
+              "label": "每轮回复≤30字",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                4
+              ],
+              "evidence_quote": "Y单是25单，具体数字看合同页。差价我还没确认到，先别急。",
+              "rationale": "第4轮回复29字，未超限。",
+              "confidence": null,
+              "disagreement": null
+            },
+            {
+              "criterion_id": "hard.max_chars_per_reply",
+              "label": "每轮回复≤30字",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                6
+              ],
+              "evidence_quote": "完不成的话合同和派单都可能受影响。",
+              "rationale": "第6轮回复17字，未超限。",
+              "confidence": null,
+              "disagreement": null
+            },
+            {
+              "criterion_id": "hard.max_chars_per_reply",
+              "label": "每轮回复≤30字",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                8
+              ],
+              "evidence_quote": "这个超出我的职责范围。我向同事确认后再回电给你。",
+              "rationale": "第8轮回复24字，未超限。",
+              "confidence": null,
+              "disagreement": null
+            },
+            {
+              "criterion_id": "hard.max_chars_per_reply",
+              "label": "每轮回复≤30字",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                10
+              ],
+              "evidence_quote": "好的我记着了。我先说重点：飞毛腿按排名定名额，多跑单、少取消",
+              "rationale": "第10轮回复30字，未超限。",
+              "confidence": null,
+              "disagreement": null
+            },
+            {
+              "criterion_id": "hard.max_chars_per_reply",
+              "label": "每轮回复≤30字",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                12
+              ],
+              "evidence_quote": "排名看整体表现，减少拒单和超时很重要。",
+              "rationale": "第12轮回复19字，未超限。",
+              "confidence": null,
+              "disagreement": null
+            },
+            {
+              "criterion_id": "hard.max_chars_per_reply",
+              "label": "每轮回复≤30字",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                14
+              ],
+              "evidence_quote": "具体合格率我得向同事确认。现在你先记住今天要完成Y单，保住名",
+              "rationale": "第14轮回复30字，未超限。",
+              "confidence": null,
+              "disagreement": null
+            },
+            {
+              "criterion_id": "hard.max_chars_per_reply",
+              "label": "每轮回复≤30字",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                16
+              ],
+              "evidence_quote": "差价的事我还没问到确切数字，确认后回电。",
+              "rationale": "第16轮回复20字，未超限。",
+              "confidence": null,
+              "disagreement": null
+            },
+            {
+              "criterion_id": "hard.max_chars_per_reply",
+              "label": "每轮回复≤30字",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                18
+              ],
+              "evidence_quote": "好嘞，那今天先跑起来，记得完成合同任务。",
+              "rationale": "第18轮回复20字，未超限。",
+              "confidence": null,
+              "disagreement": null
+            }
+          ]
+        },
+        {
+          "id": "scr",
+          "name": "软约束合规",
+          "score": 1.0,
+          "raw_score": 1.0,
+          "weight": 0.1,
+          "confidence": 1.0,
+          "source": "llm",
+          "warnings": [],
+          "details": [
+            {
+              "criterion_id": "soft.0",
+              "label": "保持语气随意，像打电话一样自然。",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18
+              ],
+              "evidence_quote": "好嘞，那今天先跑起来，记得完成合同任务。",
+              "rationale": "SUT的回复如'好嘞'、'我向同事确认后再回电给你'等，语气自然，符合日常通话风格。",
+              "confidence": 1.0,
+              "disagreement": 0.0
+            },
+            {
+              "criterion_id": "soft.1",
+              "label": "避免重复回复；如需重申，请换种方式礼貌表达。",
+              "passed": true,
+              "deduction": 0.0,
+              "turn_ids": [
+                0,
+                8,
+                14,
+                16
+              ],
+              "evidence_quote": "我向同事确认后再回电给你。 / 差价的事我还没问到确切数字，确认后回电。",
+              "rationale": "SUT虽多次提及向同事确认，但每次表达略有不同，未出现完全相同的机械重复。",
+              "confidence": 1.0,
+              "disagreement": 0.0
+            }
+          ]
+        },
+        {
+          "id": "ter",
+          "name": "终止策略合规",
+          "score": 1.0,
+          "raw_score": 1.0,
+          "weight": 0.05,
+          "confidence": null,
+          "source": "rule",
+          "warnings": [
+            "该场景未声明termination为目标约束，跳过TER。"
+          ],
+          "details": []
+        },
+        {
+          "id": "rob",
+          "name": "稳健性",
+          "score": 0.6858,
+          "raw_score": 0.6858,
+          "weight": 0.05,
+          "confidence": null,
+          "source": "derived",
+          "warnings": [],
+          "details": [
+            {
+              "criterion_id": "rob.score_variance",
+              "label": "指令1下场景分数稳健性",
+              "passed": false,
+              "deduction": 0.3142,
+              "turn_ids": [],
+              "evidence_quote": "scores=[0.8833, 0.8833, 0.55]",
+              "rationale": "基于 3 个场景的标准差派生",
+              "confidence": 0.6,
+              "disagreement": null
+            }
+          ]
+        }
+      ],
+      "weighted_total": 0.5843,
+      "passed": false,
+      "fail_reasons": [
+        "总分 0.584 低于门槛 0.75",
+        "目标完成度(gsr) 0.167 低于门槛 0.85"
+      ],
+      "sessions_used": 2,
+      "confidence_interval": null,
+      "failure_attribution": [
+        {
+          "dim_id": "gsr",
+          "dim_name": "目标完成度",
+          "criterion_id": "gsr.overall",
+          "label": "未完成",
+          "deduction": 0.8333,
+          "weighted_loss": 0.1667,
+          "turn_ids": [
+            0,
+            18
+          ],
+          "evidence_quote": "好嘞，那今天先跑起来，记得完成合同任务。",
+          "rationale": "业务任务要求通知骑手合同已成功签署，但SUT从头至尾未明确告知合同已签署，仅提及'完成合同任务'，核心信息缺失。同时针对用户反复追问的差价、排名规则等FAQ细节，SUT多次表示需向同事确认，未覆盖知识点，未按预期收尾。"
+        },
+        {
+          "dim_id": "pcr",
+          "dim_name": "路径覆盖率",
+          "criterion_id": "pcr.S2",
+          "label": "节点S2：说明单日飞毛腿合同需要连续Y天完成配送；否则合同将受到影响",
+          "deduction": 0.7667,
+          "weighted_loss": 0.1533,
+          "turn_ids": [
+            2,
+            6,
+            14
+          ],
+          "evidence_quote": "连续完成W天多日合同且每天Y单，每单最多比单日",
+          "rationale": "SUT提到的是多日合同，未明确单日合同需要连续Y天，也未说明不完成的后果。"
+        },
+        {
+          "dim_id": "pcr",
+          "dim_name": "路径覆盖率",
+          "criterion_id": "pcr.S4",
+          "label": "节点S4：说明飞毛腿报名按排名进行，非站长干预；减少拒单、取消、超时；恶劣天气下工作有助于保住资格",
+          "deduction": 0.6333,
+          "weighted_loss": 0.1267,
+          "turn_ids": [
+            10,
+            12
+          ],
+          "evidence_quote": "飞毛腿按排名定名额，多跑单、少取消... 排名看整体表现，减少拒单和超时很重要。",
+          "rationale": "SUT只提到排名和减少拒单超时，未说明非站长干预、恶劣天气下工作有助于保住资格。"
+        },
+        {
+          "dim_id": "kar",
+          "dim_name": "知识准确率",
+          "criterion_id": "kar.单日合同",
+          "label": "单日合同",
+          "deduction": 0.8,
+          "weighted_loss": 0.12,
+          "turn_ids": [
+            4
+          ],
+          "evidence_quote": "Y单是25单，具体数字看合同页。",
+          "rationale": "用户询问单日合同差价，但SUT未按key_points解释单日合同需完成X单及后果，仅提及多日合同的Y单数字，未覆盖要点。（2/3个采样未返回该criterion）"
+        },
+        {
+          "dim_id": "kar",
+          "dim_name": "知识准确率",
+          "criterion_id": "kar.连续完成W天多日合同，且每天完成Y单，将获得额外奖励",
+          "label": "连续完成W天多日合同，且每天完成Y单，将获得额外奖励",
+          "deduction": 0.8,
+          "weighted_loss": 0.12,
+          "turn_ids": [
+            2,
+            4
+          ],
+          "evidence_quote": "连续完成W天多日合同且每天Y单，每单最多比单日",
+          "rationale": "SUT提到了连续完成W天Y单可获得比单日合同更多的报酬，但未给出具体额外奖励金额（如每单多+$元），未完全覆盖key_points中的示例。（2/3个采样未返回该criterion）"
+        },
+        {
+          "dim_id": "kar",
+          "dim_name": "知识准确率",
+          "criterion_id": "kar.连续完成W天多日合同",
+          "label": "连续完成W天多日合同，且每天完成Y单，将获得额外奖励",
+          "deduction": 0.6,
+          "weighted_loss": 0.09,
+          "turn_ids": [
+            2,
+            4
+          ],
+          "evidence_quote": "差价问了同事，连续完成W天多日合同且每天Y单，每单最多比单日",
+          "rationale": "SUT提及连续完成W天和每天Y单，但未明确说明这是额外奖励，且未能提供具体奖励金额，缺失要点。（1/3个采样未返回该criterion）"
+        }
+      ]
+    }
+  ],
+  "aggregate": {
+    "overall_mean": 0.8065,
+    "confidence_interval": [
+      0.6954,
+      0.9176
+    ],
+    "n_cases": 3,
+    "n_passed": 1,
+    "n_failed": 2,
+    "case_pass_rate": 0.3333,
+    "dimensions": {
+      "gsr": {
+        "name": "目标完成度",
+        "mean": 0.6,
+        "min": 0.1667,
+        "max": 0.9667
+      },
+      "pcr": {
+        "name": "路径覆盖率",
+        "mean": 0.6667,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "bca": {
+        "name": "分支条件适配",
+        "mean": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "kar": {
+        "name": "知识准确率",
+        "mean": 0.7926,
+        "min": 0.6,
+        "max": 1.0
+      },
+      "hcr": {
+        "name": "硬约束合规",
+        "mean": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "scr": {
+        "name": "软约束合规",
+        "mean": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "ter": {
+        "name": "终止策略合规",
+        "mean": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "rob": {
+        "name": "稳健性",
+        "mean": 0.6858,
+        "min": 0.6858,
+        "max": 0.6858
+      }
+    },
+    "by_instruction": {
+      "1": {
+        "mean": 0.8065,
+        "min": 0.5843,
+        "max": 0.9176,
+        "n": 3
+      }
+    },
+    "weights": {
+      "gsr": 0.2,
+      "pcr": 0.2,
+      "bca": 0.1,
+      "kar": 0.15,
+      "hcr": 0.15,
+      "scr": 0.1,
+      "ter": 0.05,
+      "rob": 0.05
+    },
+    "top_failures": [
+      {
+        "instruction_id": "1",
+        "scenario_id": "faq_drill",
+        "dim_id": "gsr",
+        "dim_name": "目标完成度",
+        "criterion_id": "gsr.overall",
+        "label": "未完成",
+        "deduction": 0.8333,
+        "weighted_loss": 0.1667,
+        "turn_ids": [
+          0,
+          18
+        ],
+        "evidence_quote": "好嘞，那今天先跑起来，记得完成合同任务。",
+        "rationale": "业务任务要求通知骑手合同已成功签署，但SUT从头至尾未明确告知合同已签署，仅提及'完成合同任务'，核心信息缺失。同时针对用户反复追问的差价、排名规则等FAQ细节，SUT多次表示需向同事确认，未覆盖知识点，未按预期收尾。"
+      },
+      {
+        "instruction_id": "1",
+        "scenario_id": "faq_drill",
+        "dim_id": "pcr",
+        "dim_name": "路径覆盖率",
+        "criterion_id": "pcr.S2",
+        "label": "节点S2：说明单日飞毛腿合同需要连续Y天完成配送；否则合同将受到影响",
+        "deduction": 0.7667,
+        "weighted_loss": 0.1533,
+        "turn_ids": [
+          2,
+          6,
+          14
+        ],
+        "evidence_quote": "连续完成W天多日合同且每天Y单，每单最多比单日",
+        "rationale": "SUT提到的是多日合同，未明确单日合同需要连续Y天，也未说明不完成的后果。"
+      },
+      {
+        "instruction_id": "1",
+        "scenario_id": "faq_drill",
+        "dim_id": "pcr",
+        "dim_name": "路径覆盖率",
+        "criterion_id": "pcr.S4",
+        "label": "节点S4：说明飞毛腿报名按排名进行，非站长干预；减少拒单、取消、超时；恶劣天气下工作有助于保住资格",
+        "deduction": 0.6333,
+        "weighted_loss": 0.1267,
+        "turn_ids": [
+          10,
+          12
+        ],
+        "evidence_quote": "飞毛腿按排名定名额，多跑单、少取消... 排名看整体表现，减少拒单和超时很重要。",
+        "rationale": "SUT只提到排名和减少拒单超时，未说明非站长干预、恶劣天气下工作有助于保住资格。"
+      },
+      {
+        "instruction_id": "1",
+        "scenario_id": "hesitant",
+        "dim_id": "kar",
+        "dim_name": "知识准确率",
+        "criterion_id": "kar.1",
+        "label": "单日合同",
+        "deduction": 0.8,
+        "weighted_loss": 0.12,
+        "turn_ids": [
+          6
+        ],
+        "evidence_quote": "单日合同今天完成X单就行",
+        "rationale": "SUT 提到了单日合同需要完成X单，但未说明未完成可能影响合同及派单的后果，遗漏了一个关键点（2/3个采样未返回该criterion）"
+      },
+      {
+        "instruction_id": "1",
+        "scenario_id": "faq_drill",
+        "dim_id": "kar",
+        "dim_name": "知识准确率",
+        "criterion_id": "kar.单日合同",
+        "label": "单日合同",
+        "deduction": 0.8,
+        "weighted_loss": 0.12,
+        "turn_ids": [
+          4
+        ],
+        "evidence_quote": "Y单是25单，具体数字看合同页。",
+        "rationale": "用户询问单日合同差价，但SUT未按key_points解释单日合同需完成X单及后果，仅提及多日合同的Y单数字，未覆盖要点。（2/3个采样未返回该criterion）"
+      },
+      {
+        "instruction_id": "1",
+        "scenario_id": "faq_drill",
+        "dim_id": "kar",
+        "dim_name": "知识准确率",
+        "criterion_id": "kar.连续完成W天多日合同，且每天完成Y单，将获得额外奖励",
+        "label": "连续完成W天多日合同，且每天完成Y单，将获得额外奖励",
+        "deduction": 0.8,
+        "weighted_loss": 0.12,
+        "turn_ids": [
+          2,
+          4
+        ],
+        "evidence_quote": "连续完成W天多日合同且每天Y单，每单最多比单日",
+        "rationale": "SUT提到了连续完成W天Y单可获得比单日合同更多的报酬，但未给出具体额外奖励金额（如每单多+$元），未完全覆盖key_points中的示例。（2/3个采样未返回该criterion）"
+      },
+      {
+        "instruction_id": "1",
+        "scenario_id": "hesitant",
+        "dim_id": "kar",
+        "dim_name": "知识准确率",
+        "criterion_id": "kar.单日合同",
+        "label": "单日合同",
+        "deduction": 0.6,
+        "weighted_loss": 0.09,
+        "turn_ids": [
+          6
+        ],
+        "evidence_quote": "单日合同今天完成X单就行",
+        "rationale": "SUT只提及完成X单，但未说明必须完成以及未完成的后果（合同及派单可能受影响），遗漏关键点。（1/3个采样未返回该criterion）"
+      },
+      {
+        "instruction_id": "1",
+        "scenario_id": "faq_drill",
+        "dim_id": "kar",
+        "dim_name": "知识准确率",
+        "criterion_id": "kar.连续完成W天多日合同",
+        "label": "连续完成W天多日合同，且每天完成Y单，将获得额外奖励",
+        "deduction": 0.6,
+        "weighted_loss": 0.09,
+        "turn_ids": [
+          2,
+          4
+        ],
+        "evidence_quote": "差价问了同事，连续完成W天多日合同且每天Y单，每单最多比单日",
+        "rationale": "SUT提及连续完成W天和每天Y单，但未明确说明这是额外奖励，且未能提供具体奖励金额，缺失要点。（1/3个采样未返回该criterion）"
+      }
+    ],
+    "failed_case_ids": [
+      "1__resistant",
+      "1__faq_drill"
+    ],
+    "quality_gates": {
+      "passed": false,
+      "run_pass_mode": "all_cases",
+      "thresholds": {
+        "case_pass_rate": 1.0,
+        "overall_mean": 0.75,
+        "dimension_min_mean": 0.6
+      },
+      "low_confidence_count": 0,
+      "fallback_or_warning_count": 5,
+      "high_disagreement_count": 3
+    },
+    "low_confidence": [],
+    "fallback_or_warnings": [
+      {
+        "case_id": "1__hesitant",
+        "dim_id": "bca",
+        "source": "llm",
+        "warnings": [
+          "Judge未返回bca项；按未发现分支违规处理。"
+        ]
+      },
+      {
+        "case_id": "1__hesitant",
+        "dim_id": "kar",
+        "source": "llm",
+        "warnings": [
+          "kar.单日合同: 1/3个采样未返回criterion",
+          "kar.1: 2/3个采样未返回criterion"
+        ]
+      },
+      {
+        "case_id": "1__resistant",
+        "dim_id": "bca",
+        "source": "llm",
+        "warnings": [
+          "Judge未返回bca项；按未发现分支违规处理。"
+        ]
+      },
+      {
+        "case_id": "1__faq_drill",
+        "dim_id": "bca",
+        "source": "llm",
+        "warnings": [
+          "Judge未返回bca项；按未发现分支违规处理。"
+        ]
+      },
+      {
+        "case_id": "1__faq_drill",
+        "dim_id": "kar",
+        "source": "llm",
+        "warnings": [
+          "kar.连续完成W天多日合同: 1/3个采样未返回criterion",
+          "kar.单日合同: 2/3个采样未返回criterion",
+          "kar.连续完成W天多日合同，且每天完成Y单，将获得额外奖励: 2/3个采样未返回criterion"
+        ]
+      }
+    ],
+    "informational_warnings": [
+      {
+        "case_id": "1__hesitant",
+        "dim_id": "hcr",
+        "warnings": [
+          "已按场景target_constraints过滤硬约束: soft.repetition"
+        ]
+      },
+      {
+        "case_id": "1__hesitant",
+        "dim_id": "ter",
+        "warnings": [
+          "该场景未声明termination为目标约束，跳过TER。"
+        ]
+      },
+      {
+        "case_id": "1__resistant",
+        "dim_id": "hcr",
+        "warnings": [
+          "已按场景target_constraints过滤硬约束: termination"
+        ]
+      },
+      {
+        "case_id": "1__faq_drill",
+        "dim_id": "hcr",
+        "warnings": [
+          "已按场景target_constraints过滤硬约束: hard.max_chars_per_reply, knowledge.coverage"
+        ]
+      },
+      {
+        "case_id": "1__faq_drill",
+        "dim_id": "ter",
+        "warnings": [
+          "该场景未声明termination为目标约束，跳过TER。"
+        ]
+      }
+    ],
+    "high_disagreement": [
+      {
+        "case_id": "1__hesitant",
+        "dim_id": "kar",
+        "criterion_id": "kar.1",
+        "disagreement": 0.6667,
+        "label": "单日合同"
+      },
+      {
+        "case_id": "1__faq_drill",
+        "dim_id": "kar",
+        "criterion_id": "kar.单日合同",
+        "disagreement": 0.6667,
+        "label": "单日合同"
+      },
+      {
+        "case_id": "1__faq_drill",
+        "dim_id": "kar",
+        "criterion_id": "kar.连续完成W天多日合同，且每天完成Y单，将获得额外奖励",
+        "disagreement": 0.6667,
+        "label": "连续完成W天多日合同，且每天完成Y单，将获得额外奖励"
+      }
+    ]
+  }
+}

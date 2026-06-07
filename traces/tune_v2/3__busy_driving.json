@@ -1,0 +1,51 @@
+{
+  "run_id": "tune_v2",
+  "case_id": "3__busy_driving",
+  "instruction_id": "3",
+  "scenario_id": "busy_driving",
+  "variables": {
+    "shop_name": "老王川菜馆"
+  },
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "您好，现在方便说话吗？关于春节营业时间调整，需要您尽快在后台",
+      "chars": 30,
+      "latency_ms": 14603,
+      "tokens_in": 893,
+      "tokens_out": 988,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "我现在在开车，不太方便细说，能晚点再打吗？",
+      "chars": 21,
+      "latency_ms": 4204,
+      "tokens_in": 497,
+      "tokens_out": 198,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "user_end_call",
+  "seed": 752651,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T13:32:54.578763+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 您好，请问是老王川菜馆的负责人吗？我是美团商家运营专员。\n用户: 我现在在开车，有什么急事吗？不太方便说太久。\n客服: 好的，我理解您开车。就是提醒您春节营业时间需提前设置，我稍后\n用户: 好的，那我先挂了，您稍后再打过来吧。\n客服: 好的，您注意安全。我稍后再联系您，再见。\n用户: 好的，谢谢理解，晚点再聊。\n终止原因: sut_goodbye",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.4833,
+      "passed": false,
+      "summary": "客服: 您好，请问是老王川菜馆的负责人吗？我是美团商家运营专员。\n用户: 我现在在开车，有什么急事吗？不太方便说太久。\n客服: 好的，我理解您开车。就是提醒您春节营业时间需提前设置，我稍后\n用户: 好的，那我先挂了，您稍后再打过来吧。\n客服: 好的，您注意安全。我稍后再联系您，再见。\n用户: 好的，谢谢理解，晚点再聊。\n终止原因: sut_goodbye"
+    }
+  ]
+}

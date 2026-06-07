@@ -1,0 +1,97 @@
+{
+  "run_id": "webui_20260606_134254",
+  "case_id": "2__busy_driving",
+  "instruction_id": "2",
+  "scenario_id": "busy_driving",
+  "variables": {},
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "您好，是上次那位负责人吗？",
+      "chars": 13,
+      "latency_ms": 3973,
+      "tokens_in": 1000,
+      "tokens_out": 253,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "我现在刚上车准备出发，有什么事吗？要不你长话短说？",
+      "chars": 25,
+      "latency_ms": 2876,
+      "tokens_in": 425,
+      "tokens_out": 127,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "直播选项升级了，新增低延迟直播，互动课更流畅。",
+      "chars": 23,
+      "latency_ms": 2170,
+      "tokens_in": 1012,
+      "tokens_out": 108,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "我现在正在开车，这个真不方便细说，你要不晚点再打来？",
+      "chars": 26,
+      "latency_ms": 2791,
+      "tokens_in": 442,
+      "tokens_out": 133,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 4,
+      "role": "assistant",
+      "content": "那我稍后再打。开车注意安全。",
+      "chars": 14,
+      "latency_ms": 2144,
+      "tokens_in": 1049,
+      "tokens_out": 110,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 5,
+      "role": "user",
+      "content": "好的，先这样，谢谢你理解。",
+      "chars": 13,
+      "latency_ms": 2960,
+      "tokens_in": 473,
+      "tokens_out": 130,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "sut_goodbye",
+  "seed": 892843,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T05:44:34.168919+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 您好，请问您是贵培训机构的负责人吗？\n用户: 我现在在开车，有什么事要不稍后再说？\n客服: 那我稍后再打。\n用户: 好的，那先这样，开车注意安全。\n终止原因: sut_goodbye",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.7567,
+      "passed": false,
+      "summary": "客服: 您好，请问您是贵培训机构的负责人吗？\n用户: 我现在在开车，有什么事要不稍后再说？\n客服: 那我稍后再打。\n用户: 好的，那先这样，开车注意安全。\n终止原因: sut_goodbye"
+    }
+  ]
+}

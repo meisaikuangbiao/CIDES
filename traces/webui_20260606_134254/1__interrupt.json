@@ -1,0 +1,116 @@
+{
+  "run_id": "webui_20260606_134254",
+  "case_id": "1__interrupt",
+  "instruction_id": "1",
+  "scenario_id": "interrupt",
+  "variables": {
+    "rider_name": "王师傅"
+  },
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "你好，请问是王师傅吗？我是站长。我看到你已报名飞毛腿。请记住，午餐和晚餐高峰期需要上线。单日合同每天至少完成 **X 单**；多日合同每天至少完成 **Y 单**。",
+      "chars": 82,
+      "latency_ms": 3222,
+      "tokens_in": 505,
+      "tokens_out": 101,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "喂，站长啊，等一下，我先问个事，这个月站点超时扣款新规定到底怎么算的？",
+      "chars": 35,
+      "latency_ms": 3002,
+      "tokens_in": 377,
+      "tokens_out": 121,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "这个超时扣款的事我得先跟同事确认，回头再回你电话。今天飞毛腿合同已经签了，你能上线跑单吗？",
+      "chars": 45,
+      "latency_ms": 3090,
+      "tokens_in": 574,
+      "tokens_out": 177,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "那这个新规定到底改了啥？你先说清楚我再跑。明天之前能给我准话不？",
+      "chars": 32,
+      "latency_ms": 2568,
+      "tokens_in": 422,
+      "tokens_out": 128,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 4,
+      "role": "assistant",
+      "content": "我向同事确认后回电，明天之前一定给你信儿。今天合同生效，你先上线跑单，不然名额可能被别人占了。",
+      "chars": 47,
+      "latency_ms": 2130,
+      "tokens_in": 633,
+      "tokens_out": 101,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 5,
+      "role": "user",
+      "content": "行吧，那我先上线跑着。不过你得记着明天一定给我回话啊，不然我这心里没底。",
+      "chars": 36,
+      "latency_ms": 3117,
+      "tokens_in": 478,
+      "tokens_out": 171,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 6,
+      "role": "assistant",
+      "content": "放心，明天一定回你。今天记得完成X单，多日合同要连续Y天，不然资格受影响。加油，注意安全！",
+      "chars": 45,
+      "latency_ms": 2625,
+      "tokens_in": 693,
+      "tokens_out": 139,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 7,
+      "role": "user",
+      "content": "好嘞，那我先去跑单了。记得明天给我电话说扣款的事啊！",
+      "chars": 26,
+      "latency_ms": 2660,
+      "tokens_in": 538,
+      "tokens_out": 136,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "user_end_call",
+  "seed": 531344,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T05:42:57.102638+00:00",
+  "session_index": 1,
+  "max_sessions": 2,
+  "prior_memory": null,
+  "prior_sessions": []
+}

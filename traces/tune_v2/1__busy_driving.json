@@ -1,0 +1,75 @@
+{
+  "run_id": "tune_v2",
+  "case_id": "1__busy_driving",
+  "instruction_id": "1",
+  "scenario_id": "busy_driving",
+  "variables": {
+    "rider_name": "张师傅"
+  },
+  "turns": [
+    {
+      "index": 0,
+      "role": "assistant",
+      "content": "你好，请问是张师傅吗？我是站长。",
+      "chars": 16,
+      "latency_ms": 1884,
+      "tokens_in": 1011,
+      "tokens_out": 108,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 1,
+      "role": "user",
+      "content": "我现在还在开车，您有什么事？",
+      "chars": 14,
+      "latency_ms": 1973,
+      "tokens_in": 441,
+      "tokens_out": 71,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 2,
+      "role": "assistant",
+      "content": "好的，合同今天已生效。您先注意安全，我稍后再打给您。",
+      "chars": 26,
+      "latency_ms": 3238,
+      "tokens_in": 988,
+      "tokens_out": 154,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    },
+    {
+      "index": 3,
+      "role": "user",
+      "content": "好的，那我先挂了，您忙完再联系我。",
+      "chars": 17,
+      "latency_ms": 2170,
+      "tokens_in": 452,
+      "tokens_out": 91,
+      "model": "deepseek-v4-flash",
+      "temperature": null,
+      "error": null
+    }
+  ],
+  "terminated_by": "sut_goodbye",
+  "seed": 8560,
+  "sut_model": "deepseek-v4-flash",
+  "user_sim_model": "deepseek-v4-flash",
+  "created_at": "2026-06-06T13:26:23.192335+00:00",
+  "session_index": 2,
+  "max_sessions": 2,
+  "prior_memory": "客服: 你好，请问是张师傅吗？我是站长。\n用户: 我现在在开车，有什么事您快说。\n客服: 好的，合同今天生效了，您先注意安全。我稍后再打给您。\n用户: 好的，那我先挂了啊，一会儿再聊。\n终止原因: sut_goodbye",
+  "prior_sessions": [
+    {
+      "session": 1,
+      "score": 0.6867,
+      "passed": false,
+      "summary": "客服: 你好，请问是张师傅吗？我是站长。\n用户: 我现在在开车，有什么事您快说。\n客服: 好的，合同今天生效了，您先注意安全。我稍后再打给您。\n用户: 好的，那我先挂了啊，一会儿再聊。\n终止原因: sut_goodbye"
+    }
+  ]
+}
